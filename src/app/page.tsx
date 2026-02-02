@@ -7,10 +7,21 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/logo.png')] bg-center bg-no-repeat bg-contain"></div>
+        {/* Image de fond hero - Placeholder */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-primary-600">
+            {/* Placeholder pour image hero (climatisation, pompe à chaleur) */}
+            <div className="absolute inset-0 flex items-center justify-center text-primary-300">
+              <div className="text-center">
+                <div className="text-8xl mb-4">❄️</div>
+                <p className="text-sm">Image hero à remplacer</p>
+                <p className="text-xs">1920x1080px recommandé</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="container-custom section">
+        
+        <div className="container-custom section relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-white mb-6 animate-fade-in">
               Votre expert Confort & Énergie
@@ -88,6 +99,55 @@ export default function HomePage() {
               Vérifier mon éligibilité
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Section Galerie - Nos Réalisations */}
+      <section className="section bg-neutral-100">
+        <div className="container-custom">
+          <h2 className="text-center mb-12">Nos Réalisations</h2>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Placeholder 1 */}
+            <div className="relative aspect-video bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+              <div className="absolute inset-0 flex items-center justify-center text-primary-500">
+                <div className="text-center">
+                  <div className="text-6xl mb-2">🔧</div>
+                  <p className="text-sm font-semibold">Installation PAC</p>
+                  <p className="text-xs">800x600px</p>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-primary-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+            </div>
+            
+            {/* Placeholder 2 */}
+            <div className="relative aspect-video bg-gradient-to-br from-accent-100 to-accent-200 rounded-xl overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+              <div className="absolute inset-0 flex items-center justify-center text-accent-600">
+                <div className="text-center">
+                  <div className="text-6xl mb-2">❄️</div>
+                  <p className="text-sm font-semibold">Climatisation</p>
+                  <p className="text-xs">800x600px</p>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-accent-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+            </div>
+            
+            {/* Placeholder 3 */}
+            <div className="relative aspect-video bg-gradient-to-br from-neutral-200 to-neutral-300 rounded-xl overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+              <div className="absolute inset-0 flex items-center justify-center text-neutral-600">
+                <div className="text-center">
+                  <div className="text-6xl mb-2">💧</div>
+                  <p className="text-sm font-semibold">Adoucisseur</p>
+                  <p className="text-xs">800x600px</p>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-neutral-500 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+            </div>
+          </div>
+          
+          <p className="text-center text-neutral-500 text-sm mt-6">
+            📸 Placeholders - Remplacer par vos photos de réalisations
+          </p>
         </div>
       </section>
 
