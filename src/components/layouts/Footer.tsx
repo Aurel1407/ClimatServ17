@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
   
   return (
-    <footer className="bg-primary-500 text-white">
+    <footer className="bg-primary-500 text-white" role="contentinfo">
       <div className="container-custom py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
@@ -26,7 +26,8 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h4 className="font-bold text-white mb-4">Navigation</h4>
-            <ul className="space-y-2 text-primary-100">
+            <nav aria-label="Navigation du pied de page">
+              <ul className="space-y-2 text-primary-100">
               <li>
                 <Link href="/" className="hover:text-white transition-colors">
                   Accueil
@@ -47,7 +48,13 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/accessibilite" className="hover:text-white transition-colors">
+                  Accessibilité
+                </Link>
+              </li>
             </ul>
+            </nav>
           </div>
           
           {/* Services */}
