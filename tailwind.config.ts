@@ -9,45 +9,60 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Palette Industrial Clean - ClimatServ17
+        // Palette ClimatServ17 - Moderne & Professionnel
         primary: {
-          DEFAULT: '#1A2B3C', // Bleu Nuit
-          50: '#E8EBF0',
-          100: '#D1D7E1',
-          200: '#A3AFC3',
-          300: '#7587A5',
-          400: '#475F87',
-          500: '#1A2B3C',
-          600: '#152230',
-          700: '#101924',
-          800: '#0B1118',
-          900: '#06080C',
+          DEFAULT: '#0B4F8C', // Bleu Corporate
+          50: '#E8F3FB',
+          100: '#D1E7F7',
+          200: '#A3CFEF',
+          300: '#75B7E7',
+          400: '#479FDF',
+          500: '#0B4F8C',
+          600: '#094070',
+          700: '#073054',
+          800: '#052038',
+          900: '#03101C',
         },
         accent: {
-          DEFAULT: '#FF7F50', // Orange Corail
-          50: '#FFF5F2',
-          100: '#FFE6DD',
-          200: '#FFCCBB',
-          300: '#FFB399',
-          400: '#FF9977',
-          500: '#FF7F50',
-          600: '#FF5520',
-          700: '#E63D00',
-          800: '#B33000',
-          900: '#802200',
+          DEFAULT: '#E84C0A', // Orange Énergique
+          50: '#FEF3ED',
+          100: '#FDE7DB',
+          200: '#FBCFB7',
+          300: '#F9B793',
+          400: '#F79F6F',
+          500: '#E84C0A',
+          600: '#BA3D08',
+          700: '#8B2E06',
+          800: '#5D1F04',
+          900: '#2E0F02',
         },
-        technical: {
-          DEFAULT: '#F4F4F4', // Gris Technique
+        neutral: {
+          DEFAULT: '#F8F9FA', // Gris Neutre
           50: '#FFFFFF',
-          100: '#FAFAFA',
-          200: '#F4F4F4',
-          300: '#E0E0E0',
-          400: '#BDBDBD',
-          500: '#9E9E9E',
-          600: '#757575',
-          700: '#616161',
-          800: '#424242',
-          900: '#212121',
+          100: '#F8F9FA',
+          200: '#E9ECEF',
+          300: '#DEE2E6',
+          400: '#CED4DA',
+          500: '#ADB5BD',
+          600: '#6C757D',
+          700: '#495057',
+          800: '#343A40',
+          900: '#212529',
+        },
+        success: {
+          DEFAULT: '#28A745',
+          light: '#D4EDDA',
+          dark: '#155724',
+        },
+        warning: {
+          DEFAULT: '#FFC107',
+          light: '#FFF3CD',
+          dark: '#856404',
+        },
+        error: {
+          DEFAULT: '#DC3545',
+          light: '#F8D7DA',
+          dark: '#721C24',
         },
       },
       fontFamily: {
