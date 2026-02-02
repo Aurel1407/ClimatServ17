@@ -67,14 +67,19 @@ export default function Footer() {
             <ul className="space-y-3 text-primary-100">
               <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="tel:0546000000" className="hover:text-white transition-colors">
-                  05 46 00 00 00
-                </a>
+                <div>
+                  <a href="tel:0546525330" className="hover:text-white transition-colors block">
+                    05 46 52 53 30
+                  </a>
+                  <a href="tel:0688503112" className="text-xs hover:text-white transition-colors">
+                    Dépannage: 06 88 50 31 12
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="mailto:contact@climatserv17.fr" className="hover:text-white transition-colors">
-                  contact@climatserv17.fr
+                <a href="mailto:climatserv17.contact@gmail.com" className="hover:text-white transition-colors">
+                  climatserv17.contact@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">

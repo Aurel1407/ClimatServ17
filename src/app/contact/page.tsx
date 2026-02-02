@@ -68,9 +68,12 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-accent-500 mt-1" />
                   <div>
                     <p className="font-semibold">Téléphone</p>
-                    <a href="tel:0546000000" className="text-accent-500 hover:underline">
-                      05 46 00 00 00
+                    <a href="tel:0546525330" className="text-accent-500 hover:underline">
+                      05 46 52 53 30
                     </a>
+                    <p className="text-sm text-neutral-600 mt-1">
+                      Dépannage/Entretien: <a href="tel:0688503112" className="text-accent-500 hover:underline">06 88 50 31 12</a>
+                    </p>
                   </div>
                 </div>
                 
@@ -78,8 +81,8 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 text-accent-500 mt-1" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <a href="mailto:contact@climatserv17.fr" className="text-accent-500 hover:underline">
-                      contact@climatserv17.fr
+                    <a href="mailto:climatserv17.contact@gmail.com" className="text-accent-500 hover:underline">
+                      climatserv17.contact@gmail.com
                     </a>
                   </div>
                 </div>
