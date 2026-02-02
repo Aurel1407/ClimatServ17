@@ -34,9 +34,9 @@ export default function HomePage() {
                 <Calendar className="w-5 h-5" />
                 Prendre RDV
               </Link>
-              <a href="tel:0546000000" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
+              <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
                 <Phone className="w-5 h-5" />
-                05 46 00 00 00
+                05 46 52 53 30
               </a>
             </div>
           </div>
