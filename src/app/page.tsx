@@ -1,11 +1,15 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, Calendar, CheckCircle, MapPin } from 'lucide-react'
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white">
+      <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('/images/logo.png')] bg-center bg-no-repeat bg-contain"></div>
+        </div>
         <div className="container-custom section">
           <div className="max-w-3xl">
             <h1 className="text-white mb-6 animate-fade-in">

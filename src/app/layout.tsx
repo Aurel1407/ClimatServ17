@@ -2,6 +2,8 @@ import '@/app/globals.css'
 import type { Metadata } from 'next'
 import { Inter, Montserrat } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import Header from '@/components/layouts/Header'
+import Footer from '@/components/layouts/Footer'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -50,7 +52,11 @@ export default function RootLayout({
   return (
     <html lang="fr" className={cn(inter.variable, montserrat.variable)}>
       <body className="font-sans antialiased bg-neutral-50 text-primary-800">
-        {children}
+        <Header />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )
