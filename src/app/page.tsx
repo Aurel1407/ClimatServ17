@@ -154,10 +154,10 @@ export default function HomePage() {
 
 function ServiceCard({ icon, title, description }: { icon: string; title: string; description: string }) {
   return (
-    <div className="card text-center hover:scale-105">
+    <div className="card text-center hover:scale-105 flex flex-col items-center">
       <div className="text-6xl mb-4">{icon}</div>
-      <h3 className="mb-3">{title}</h3>
-      <p className="text-neutral-600">{description}</p>
+      <h3 className="mb-3 text-lg md:text-xl lg:text-2xl break-words hyphens-auto" lang="fr">{title}</h3>
+      <p className="text-neutral-600 text-sm">{description}</p>
     </div>
   )
 }
