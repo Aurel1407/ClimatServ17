@@ -52,7 +52,7 @@
   
   /* Cartes */
   .card {
-    @apply bg-white rounded-xl shadow-soft p-6 transition-all duration-200 hover:shadow-industrial;
+    @apply bg-white rounded-xl shadow-md p-6 transition-all duration-200 hover:shadow-industrial;
   }
   
   /* Inputs */
