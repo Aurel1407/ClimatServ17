@@ -39,11 +39,11 @@ export default function Header() {
           {/* CTA Desktop */}
           <div className="hidden md:flex items-center gap-3">
             <a 
-              href="tel:0546000000" 
+              href="tel:0546525330" 
               className="flex items-center gap-2 text-primary-700 hover:text-accent-500 font-semibold transition-colors"
             >
               <Phone className="w-5 h-5" />
-              <span>05 46 00 00 00</span>
+              <span>05 46 52 53 30</span>
             </a>
             <Link href="/maintenance-sav" className="btn btn-primary">
               Prendre RDV

@@ -1,19 +1,19 @@
 # ClimatServ17 - Plateforme de Gestion Client
 
-## 🎯 Description
+## Description
 
 Plateforme web moderne pour ClimatServ17, spécialiste en climatisation, pompes à chaleur et adoucisseurs d'eau à La Rochelle.
 
 ### Fonctionnalités principales
 
-- 🗓️ **Système de prise de RDV intelligent** avec validation géographique
-- 🔐 **Espace client sécurisé** (Magic Link - authentification sans mot de passe)
-- 📄 **Gestion documentaire** (factures, devis, attestations)
-- 👨‍💼 **Back-office artisan** pour gestion des documents
-- 🎨 **Design Industrial Clean** optimisé mobile-first
-- 🚀 **SEO optimisé** pour la zone La Rochelle + 60km
+- **Système de prise de RDV intelligent** avec validation géographique
+- **Espace client sécurisé** (Magic Link - authentification sans mot de passe)
+- **Gestion documentaire** (factures, devis, attestations)
+- **Back-office artisan** pour gestion des documents
+- **Design Industrial Clean** optimisé mobile-first
+- **SEO optimisé** pour la zone La Rochelle + 60km
 
-## 🛠️ Technologies
+## Technologies
 
 - **Frontend:** Next.js 14 (App Router) + TypeScript + Tailwind CSS
 - **Backend:** Next.js API Routes
@@ -22,7 +22,7 @@ Plateforme web moderne pour ClimatServ17, spécialiste en climatisation, pompes 
 - **Validation:** Zod
 - **Icônes:** Lucide React
 
-## 📁 Structure du projet
+## Structure du projet
 
 ```
 ClimatServ17/
@@ -61,7 +61,7 @@ ClimatServ17/
 └── tsconfig.json
 ```
 
-## 🚀 Installation
+## Installation
 
 ### Prérequis
 
@@ -109,7 +109,7 @@ npm run dev
 
 Ouvrir [http://localhost:3000](http://localhost:3000)
 
-## 📜 Scripts disponibles
+## Scripts disponibles
 
 ```bash
 npm run dev          # Serveur de développement
@@ -121,7 +121,7 @@ npm run prisma:migrate   # Migration de la BDD
 npm run prisma:studio    # Interface admin Prisma
 ```
 
-## 🎨 Design System
+## Design System
 
 ### Palette de couleurs
 
@@ -134,30 +134,30 @@ npm run prisma:studio    # Interface admin Prisma
 - **Titres** : Montserrat (Bold)
 - **Corps** : Inter (Regular)
 
-## 🔒 Sécurité
+## Sécurité
 
-- ✅ SSL/TLS obligatoire
-- ✅ Authentification sans mot de passe (Magic Link)
-- ✅ Validation côté serveur (Zod)
-- ✅ Protection CSRF
-- ✅ Headers de sécurité (CSP, X-Frame-Options, etc.)
+- SSL/TLS obligatoire
+- Authentification sans mot de passe (Magic Link)
+- Validation côté serveur (Zod)
+- Protection CSRF
+- Headers de sécurité (CSP, X-Frame-Options, etc.)
 
-## 📱 SEO & Performance
+## SEO & Performance
 
-- ✅ Score PageSpeed > 90/100
-- ✅ Images WebP optimisées
-- ✅ Métadonnées structurées (Schema.org)
-- ✅ Sitemap.xml automatique
-- ✅ Mobile-First responsive
+- Score PageSpeed > 90/100
+- Images WebP optimisées
+- Métadonnées structurées (Schema.org)
+- Sitemap.xml automatique
+- Mobile-First responsive
 
-## 🗺️ Workflow Git
+## Workflow Git
 
 - **main** : Production
 - **dev** : Développement
 - **feature/*** : Nouvelles fonctionnalités
 - **fix/*** : Corrections de bugs
 
-## 📝 TODO
+## TODO
 
 - [ ] Implémenter le système de prise de RDV
 - [ ] Intégrer l'API Google Calendar
@@ -167,10 +167,10 @@ npm run prisma:studio    # Interface admin Prisma
 - [ ] Optimiser les images et icônes
 - [ ] Configurer le déploiement CI/CD
 
-## 👤 Auteur
+## Auteur
 
 **ClimatServ17**
 
-## 📄 Licence
+## Licence
 
 Propriétaire - Tous droits réservés

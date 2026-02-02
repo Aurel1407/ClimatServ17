@@ -13,10 +13,10 @@ export default function HomePage() {
         <div className="container-custom section">
           <div className="max-w-3xl">
             <h1 className="text-white mb-6 animate-fade-in">
-              Expert en Climatisation & Pompes à Chaleur
+              Votre expert Confort & Énergie
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-50 animate-slide-up">
-              Installation, entretien et dépannage à La Rochelle et dans un rayon de 60km
+              Installation, entretien et dépannage de pompes à chaleur, climatisations, ballons thermodynamiques et adoucisseurs à La Rochelle et dans un rayon de 60km
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-slide-up animation-delay-200">
               <Link href="/maintenance-sav" className="btn btn-primary">
@@ -37,12 +37,30 @@ export default function HomePage() {
         <div className="container-custom">
           <h2 className="text-center mb-12">Nos Services</h2>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <ServiceCard
-              icon="🔧"
-              title="Installation"
-              description="Installation professionnelle de climatisation, PAC et adoucisseurs d'eau"
+              icon="🔥"
+              title="Pompes à Chaleur"
+              description="Chauffage performant et économique, écologique et silencieux"
             />
+            <ServiceCard
+              icon="❄️"
+              title="Climatisations"
+              description="Confort optimal été comme hiver avec nos systèmes réversibles"
+            />
+            <ServiceCard
+              icon="💧"
+              title="Ballons Thermodynamiques"
+              description="Eau chaude sanitaire économique et écologique"
+            />
+            <ServiceCard
+              icon="✨"
+              title="Adoucisseurs d'Eau"
+              description="Protégez vos équipements et profitez d'une eau plus douce"
+            />
+          </div>
+          
+          <div className="mt-12 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <ServiceCard
               icon="⚙️"
               title="Entretien"
@@ -120,7 +138,7 @@ export default function HomePage() {
       {/* Sticky Footer Mobile */}
       <div className="sticky-footer-mobile">
         <div className="flex gap-3">
-          <a href="tel:0546000000" className="btn btn-secondary flex-1">
+          <a href="tel:0546525330" className="btn btn-secondary flex-1">
             <Phone className="w-5 h-5" />
             Appeler
           </a>
