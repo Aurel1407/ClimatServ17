@@ -100,18 +100,34 @@ export default function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-primary-400 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-100 text-sm">
-            © {currentYear} ClimatServ17. Tous droits réservés.
-          </p>
+        <div className="border-t border-primary-400 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+            <p className="text-primary-100 text-sm">
+              © {currentYear} ClimatServ17. Tous droits réservés.
+            </p>
+            
+            <div className="flex gap-4">
+              <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
           
-          <div className="flex gap-4">
-            <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Instagram">
-              <Instagram className="w-5 h-5" />
-            </a>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-primary-100">
+            <Link href="/mentions-legales" className="hover:text-white transition-colors">
+              Mentions légales
+            </Link>
+            <span className="text-primary-300">•</span>
+            <Link href="/politique-confidentialite" className="hover:text-white transition-colors">
+              Politique de confidentialité
+            </Link>
+            <span className="text-primary-300">•</span>
+            <Link href="/conditions-generales" className="hover:text-white transition-colors">
+              Conditions générales
+            </Link>
           </div>
         </div>
       </div>
