@@ -4,6 +4,7 @@ import { Inter, Montserrat } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import Header from '@/components/layouts/Header'
 import Footer from '@/components/layouts/Footer'
+import "leaflet/dist/leaflet.css"
 
 const inter = Inter({ 
   subsets: ['latin'],

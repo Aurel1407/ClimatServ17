@@ -1,6 +1,9 @@
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Calendar, CheckCircle, MapPin } from 'lucide-react'
+import ZoneInterventionMap from "@/components/ui/InteractiveMap"
+
 
 export default function HomePage() {
   return (
@@ -98,12 +101,12 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto text-center">
             <MapPin className="w-12 h-12 text-accent-500 mx-auto mb-6" />
             <h2 className="mb-6">Zone d'Intervention</h2>
-            <p className="text-lg text-neutral-700 mb-8">
+            <p className="text-lg text-neutral-700 mb-16">
               Nous intervenons à La Rochelle et dans un rayon de 60km (Charente-Maritime et départements limitrophes)
             </p>
-            <Link href="/maintenance-sav" className="btn btn-primary">
-              Vérifier mon éligibilité
-            </Link>
+            <div className="-mb-20">
+              <ZoneInterventionMap/>
+              </div>
           </div>
         </div>
       </section>
