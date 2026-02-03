@@ -11,13 +11,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="md:col-span-1">
-            <div className="flex justify-center items-center mb- ">
+            <div className="flex justify-center items-center mb-4">
               <Image 
                 src="/images/logo.webp" 
                 alt="ClimatServ17" 
-                width={75} 
-                height={15}
-                className="h-15 w-auto filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.4)] "
+                width={120} 
+                height={120}
+                className="h-auto w-32 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.4)]"
               />
             </div>
             <p className="text-primary-100 text-medium">
