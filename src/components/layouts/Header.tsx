@@ -15,7 +15,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3" aria-label="Retour à l'accueil">
             <Image 
-              src="/images/logo.png" 
+              src="/images/logo.webp" 
               alt="ClimatServ17 - Votre expert Confort & Énergie" 
               width={180} 
               height={60}
