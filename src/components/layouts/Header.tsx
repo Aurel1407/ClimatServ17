@@ -42,7 +42,7 @@ export default function Header() {
           </nav>
           
           {/* CTA Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center pl-6 gap-3">
             <a 
               href="tel:0546525330" 
               className="flex items-center gap-2 text-primary-700 hover:text-accent-500 font-semibold transition-colors"
