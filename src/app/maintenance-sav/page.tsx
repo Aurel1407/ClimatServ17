@@ -148,7 +148,7 @@ export default function MaintenanceSAVPage() {
               >
                 <div className="text-4xl mb-3">🔧</div>
                 <h3 className={getServiceTitleClass('installation')}>
-                  Installation
+                  Demande de devis
                 </h3>
                 <p className="text-sm opacity-90">Nouveau matériel</p>
               </button>
@@ -359,6 +359,8 @@ export default function MaintenanceSAVPage() {
                             <option value="pac-air-air">Pompe à chaleur Air/Air</option>
                             <option value="pac-air-eau">Pompe à chaleur Air/Eau</option>
                             <option value="chauffage">Système de chauffage</option>
+                            <option value="adoucisseur">Adoucisseur d'eau</option>
+                            <option value="ballon-thermodynamique">Ballon thermodynamique</option>
                           </select>
                         </div>
                         <div>
@@ -426,6 +428,8 @@ export default function MaintenanceSAVPage() {
                           <option value="pac-air-air">Pompe à chaleur Air/Air</option>
                           <option value="pac-air-eau">Pompe à chaleur Air/Eau</option>
                           <option value="chauffage">Système de chauffage</option>
+                          <option value="adoucisseur">Adoucisseur d'eau</option>
+                          <option value="ballon-thermodynamique">Ballon thermodynamique</option>
                         </select>
                       </div>
                     </div>

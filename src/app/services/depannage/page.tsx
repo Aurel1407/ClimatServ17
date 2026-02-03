@@ -5,8 +5,21 @@ export default function DepannagePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-accent-500 to-accent-700 text-white section">
-        <div className="container-custom">
+      <section className="relative bg-gradient-to-br from-accent-500 to-accent-700 text-white section overflow-hidden">
+        {/* Image de fond hero - Placeholder */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-accent-600">
+            <div className="absolute inset-0 flex items-center justify-center text-accent-300">
+              <div className="text-center">
+                <div className="text-8xl mb-4">🚨</div>
+                <p className="text-sm">Image dépannage urgence</p>
+                <p className="text-xs">1920x1080px recommandé</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl">
             <div className="text-6xl mb-6">🚨</div>
             <h1 className="text-white mb-6">Dépannage Rapide</h1>
@@ -14,14 +27,10 @@ export default function DepannagePage() {
               Intervention rapide en cas de panne ou dysfonctionnement de votre installation
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:0546525330" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
+              <a href="tel:0688503112" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
                 <Phone className="w-5 h-5" />
-                Appeler maintenant : 05 46 52 53 30
+                Appeler maintenant : 06 88 50 31 12
               </a>
-              <Link href="/maintenance-sav" className="btn btn-outline border-white text-white hover:bg-white hover:text-accent-500">
-                <Calendar className="w-5 h-5" />
-                Prendre rendez-vous
-              </Link>
             </div>
           </div>
         </div>
@@ -46,7 +55,7 @@ export default function DepannagePage() {
                 <div className="text-center p-4 bg-accent-50 rounded-lg">
                   <Phone className="w-8 h-8 text-accent-500 mx-auto mb-2" />
                   <p className="font-semibold">Appelez-nous</p>
-                  <a href="tel:0546525330" className="text-accent-500 hover:underline">05 46 52 53 30</a>
+                  <a href="tel:0688503112" className="text-accent-500 hover:underline">06 88 50 31 12</a>
                 </div>
 
                 <div className="text-center p-4 bg-accent-50 rounded-lg">
@@ -362,14 +371,10 @@ export default function DepannagePage() {
             Nos techniciens sont disponibles 7j/7 pour intervenir rapidement
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:0546525330" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
+            <a href="tel:0688503112" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
               <Phone className="w-5 h-5" />
-              05 46 52 53 30
+              06 88 50 31 12
             </a>
-            <Link href="/maintenance-sav" className="btn btn-outline border-white text-white hover:bg-white hover:text-accent-500">
-              <Calendar className="w-5 h-5" />
-              Prendre rendez-vous
-            </Link>
           </div>
         </div>
       </section>
