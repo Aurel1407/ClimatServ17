@@ -21,17 +21,15 @@ export default function Header() {
               height={60}
               className="h-12 w-auto"
               priority
+              
             />
           </Link>
-          <span className="text-primary-600 hover:text-accent-500 text-2xl font-semibold flex-auto transition-colors left-0 font-heading">ClimatServ17</span>
+          <Link href="/" className="text-primary-600 hover:text-accent-500 text-2xl font-semibold flex-auto transition-colors left-0 font-heading">ClimatServ17</Link>
           
           {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center gap-6" role="navigation" aria-label="Navigation principale">
             <Link href="/" className="text-primary-700 hover:text-accent-500 font-medium transition-colors" aria-current="page">
               Accueil
-            </Link>
-            <Link href="/maintenance-sav" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
-              Prendre RDV
             </Link>
             <Link href="/espace-client" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
               Espace Client
