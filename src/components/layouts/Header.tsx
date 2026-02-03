@@ -23,6 +23,7 @@ export default function Header() {
               priority
             />
           </Link>
+          <span className="text-primary-600 hover:text-accent-500 text-2xl font-semibold flex-auto transition-colors left-0 font-heading">ClimatServ17</span>
           
           {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center gap-6" role="navigation" aria-label="Navigation principale">
