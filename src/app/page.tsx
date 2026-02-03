@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Calendar, CheckCircle, MapPin } from 'lucide-react'
-import ZoneInterventionMap from "@/components/ui/InteractiveMap"
+import ZoneInterventionMap from "@/components/ui/MapWrapper"
 
 
 export default function HomePage() {
