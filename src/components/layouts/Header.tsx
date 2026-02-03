@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Menu, X } from 'lucide-react'
+import { Calendar,Phone, Menu, X } from 'lucide-react'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -15,22 +15,21 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3" aria-label="Retour à l'accueil">
             <Image 
-              src="/images/logo.png" 
+              src="/images/logo.webp" 
               alt="ClimatServ17 - Votre expert Confort & Énergie" 
               width={180} 
               height={60}
               className="h-12 w-auto"
               priority
+              
             />
           </Link>
+          <Link href="/" className="text-primary-600 hover:text-accent-500 text-2xl font-semibold flex-auto transition-colors left-0 font-heading">ClimatServ17</Link>
           
           {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center gap-6" role="navigation" aria-label="Navigation principale">
             <Link href="/" className="text-primary-700 hover:text-accent-500 font-medium transition-colors" aria-current="page">
               Accueil
-            </Link>
-            <Link href="/maintenance-sav" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
-              Prendre RDV
             </Link>
             <Link href="/espace-client" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
               Espace Client
@@ -41,7 +40,7 @@ export default function Header() {
           </nav>
           
           {/* CTA Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center pl-6 gap-3">
             <a 
               href="tel:0546525330" 
               className="flex items-center gap-2 text-primary-700 hover:text-accent-500 font-semibold transition-colors"
@@ -51,6 +50,7 @@ export default function Header() {
               <span>05 46 52 53 30</span>
             </a>
             <Link href="/maintenance-sav" className="btn btn-primary">
+            <Calendar className="w-5 h-5" />
               Prendre RDV
             </Link>
           </div>

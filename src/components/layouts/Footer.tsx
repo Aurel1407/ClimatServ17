@@ -11,16 +11,16 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="md:col-span-1">
-            <div className="bg-white p-3 rounded-lg inline-block mb-4">
+            <div className="flex justify-center items-center mb- ">
               <Image 
-                src="/images/logo.png" 
+                src="/images/logo.webp" 
                 alt="ClimatServ17" 
-                width={150} 
-                height={50}
-                className="h-10 w-auto"
+                width={75} 
+                height={15}
+                className="h-15 w-auto filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.4)] "
               />
             </div>
-            <p className="text-primary-100 text-sm">
+            <p className="text-primary-100 text-medium">
               Expert en climatisation, pompes à chaleur et adoucisseurs d'eau à La Rochelle.
             </p>
           </div>
@@ -100,18 +100,34 @@ export default function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div className="border-t border-primary-400 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-100 text-sm">
-            © {currentYear} ClimatServ17. Tous droits réservés.
-          </p>
+        <div className="border-t border-primary-400 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+            <p className="text-primary-100 text-sm">
+              © {currentYear} ClimatServ17. Tous droits réservés.
+            </p>
+            
+            <div className="flex gap-4">
+              <a href="https://www.facebook.com/p/Climatserv17-61578692780192/" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
           
-          <div className="flex gap-4">
-            <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Instagram">
-              <Instagram className="w-5 h-5" />
-            </a>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-primary-100">
+            <Link href="/mentions-legales" className="hover:text-white transition-colors">
+              Mentions légales
+            </Link>
+            <span className="text-primary-300">•</span>
+            <Link href="/politique-confidentialite" className="hover:text-white transition-colors">
+              Politique de confidentialité
+            </Link>
+            <span className="text-primary-300">•</span>
+            <Link href="/conditions-generales" className="hover:text-white transition-colors">
+              Conditions générales
+            </Link>
           </div>
         </div>
       </div>

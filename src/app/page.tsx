@@ -24,7 +24,7 @@ export default function HomePage() {
         <div className="container-custom section relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-white mb-6 animate-fade-in">
-              Votre expert Confort & Énergie
+              ClimatServ17 - Votre expert Confort & Énergie
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-50 animate-slide-up">
               Installation, entretien et dépannage de pompes à chaleur, climatisations, ballons thermodynamiques et adoucisseurs à La Rochelle et dans un rayon de 60km
@@ -53,21 +53,25 @@ export default function HomePage() {
               icon="🔥"
               title="Pompes à Chaleur"
               description="Chauffage performant et économique, écologique et silencieux"
+              href="/services/pompes-a-chaleur"
             />
             <ServiceCard
               icon="❄️"
               title="Climatisations"
               description="Confort optimal été comme hiver avec nos systèmes réversibles"
+              href="/services/climatisations"
             />
             <ServiceCard
               icon="💧"
               title="Ballons Thermodynamiques"
               description="Eau chaude sanitaire économique et écologique"
+              href="/services/ballons-thermodynamiques"
             />
             <ServiceCard
               icon="✨"
               title="Adoucisseurs d'Eau"
               description="Protégez vos équipements et profitez d'une eau plus douce"
+              href="/services/adoucisseurs"
             />
           </div>
           
@@ -76,11 +80,13 @@ export default function HomePage() {
               icon="⚙️"
               title="Entretien"
               description="Maintenance préventive et attestations d'entretien annuel"
+              href="/services/entretien"
             />
             <ServiceCard
               icon="🚨"
               title="Dépannage"
               description="Intervention rapide en cas de panne ou dysfonctionnement"
+              href="/services/depannage"
             />
           </div>
         </div>
@@ -212,13 +218,14 @@ export default function HomePage() {
   )
 }
 
-function ServiceCard({ icon, title, description }: { icon: string; title: string; description: string }) {
+function ServiceCard({ icon, title, description, href }: { icon: string; title: string; description: string; href: string }) {
   return (
-    <div className="card text-center hover:scale-105 flex flex-col items-center">
-      <div className="text-6xl mb-4">{icon}</div>
-      <h3 className="mb-3 text-lg md:text-xl lg:text-2xl break-words hyphens-auto" lang="fr">{title}</h3>
-      <p className="text-neutral-600 text-sm">{description}</p>
-    </div>
+    <Link href={href} className="card text-center hover:scale-105 flex flex-col items-center transition-all hover:shadow-lg group">
+      <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">{icon}</div>
+      <h3 className="mb-3 text-lg md:text-xl lg:text-2xl break-words hyphens-auto text-primary-500 group-hover:text-primary-600" lang="fr">{title}</h3>
+      <p className="text-neutral-600 text-sm group-hover:text-neutral-700">{description}</p>
+      <span className="text-primary-500 text-sm mt-4 font-semibold group-hover:underline">En savoir plus →</span>
+    </Link>
   )
 }
 
