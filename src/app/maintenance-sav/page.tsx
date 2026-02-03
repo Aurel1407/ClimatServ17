@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 type ServiceType = 'installation' | 'entretien' | 'depannage' | null
 
 export default function MaintenanceSAVPage() {
+  const router = useRouter()
   const [selectedService, setSelectedService] = useState<ServiceType>(null)
   const [formData, setFormData] = useState({
     nom: '',
@@ -25,6 +27,12 @@ export default function MaintenanceSAVPage() {
   })
 
   const handleServiceClick = (service: ServiceType) => {
+    // Rediriger vers la page dépannage si c'est le service sélectionné
+    if (service === 'depannage') {
+      router.push('/services/depannage')
+      return
+    }
+    
     setSelectedService(service)
     // Réinitialiser le formulaire lors du changement de service
     setFormData({
@@ -174,71 +182,7 @@ export default function MaintenanceSAVPage() {
                   {getServiceTitle()}
                 </h2>
 
-                {selectedService === 'depannage' ? (
-                  <div className="space-y-6">
-                    {/* Affichage pour dépannage */}
-                    <div className="bg-red-50 border-2 border-red-200 rounded-lg p-8 text-center">
-                      <div className="text-6xl mb-4">📞</div>
-                      <h3 className="text-2xl font-bold text-red-800 mb-2">
-                        Urgence Dépannage
-                      </h3>
-                      <p className="text-lg text-neutral-700 mb-6">
-                        Contactez-nous directement pour une intervention rapide
-                      </p>
-                      <a
-                        href="tel:0688503112"
-                        className="inline-block bg-red-600 text-white text-3xl font-bold px-8 py-4 rounded-lg hover:bg-red-700 transition-colors"
-                      >
-                        06 88 50 31 12
-                      </a>
-                    </div>
-
-                    <div className="bg-neutral-50 p-6 rounded-lg">
-                      <h4 className="text-lg font-semibold mb-4 text-neutral-800">
-                        Informations à préparer avant l'appel :
-                      </h4>
-                      <ul className="space-y-3 text-neutral-700">
-                        <li className="flex items-start gap-3">
-                          <span className="text-primary-500 font-bold mt-1">•</span>
-                          <span><strong>Votre adresse complète</strong> et code postal</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-primary-500 font-bold mt-1">•</span>
-                          <span><strong>Type d'équipement concerné</strong> (climatisation, pompe à chaleur, chauffage)</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-primary-500 font-bold mt-1">•</span>
-                          <span><strong>Marque et modèle</strong> de l'appareil si possible</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-primary-500 font-bold mt-1">•</span>
-                          <span><strong>Description du problème</strong> (bruits anormaux, fuite, pas de chauffage/froid, codes erreur, etc.)</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="text-primary-500 font-bold mt-1">•</span>
-                          <span><strong>Vos disponibilités</strong> pour l'intervention</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-accent-50 border-l-4 border-accent-500 p-4 rounded">
-                      <p className="text-sm text-accent-800">
-                        <strong>💡 Astuce :</strong> Prenez une photo de la plaque signalétique de votre appareil avant d'appeler, elle contient des informations utiles pour le diagnostic.
-                      </p>
-                    </div>
-
-                    <div className="text-center">
-                      <button
-                        type="button"
-                        onClick={() => setSelectedService(null)}
-                        className="px-6 py-3 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
-                      >
-                        Retour à la sélection
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Informations personnelles */}
                   <div className="bg-neutral-50 p-6 rounded-lg">
                     <h3 className="text-lg font-semibold mb-4">Vos informations</h3>
@@ -523,7 +467,6 @@ export default function MaintenanceSAVPage() {
                     </button>
                   </div>
                 </form>
-                )}
               </div>
             )}
             
