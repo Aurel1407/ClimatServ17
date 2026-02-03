@@ -642,7 +642,7 @@ export default function ConditionsGeneralesPage() {
 
             {/* Contact */}
             <div className="card bg-primary-600 text-white">
-              <h2 className="text-2xl font-bold mb-4">
+              <h2 className="text-2xl font-bold mb-4 text-white">
                 Questions sur nos conditions générales ?
               </h2>
               

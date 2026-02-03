@@ -107,7 +107,7 @@ export default function Footer() {
             </p>
             
             <div className="flex gap-4">
-              <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/p/Climatserv17-61578692780192/" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
               <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Instagram">

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Menu, X } from 'lucide-react'
+import { Calendar,Phone, Menu, X } from 'lucide-react'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -50,6 +50,7 @@ export default function Header() {
               <span>05 46 52 53 30</span>
             </a>
             <Link href="/maintenance-sav" className="btn btn-primary">
+            <Calendar className="w-5 h-5" />
               Prendre RDV
             </Link>
           </div>

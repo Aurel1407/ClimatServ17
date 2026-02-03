@@ -105,7 +105,7 @@ export default function AdoucisseursPage() {
             </div>
 
             <div className="text-center">
-              <div className="bg-success-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-success-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-700 border-2">
                 <Droplets className="w-8 h-8 text-success-500" />
               </div>
               <h3 className="text-lg mb-3">Économies d'énergie</h3>
