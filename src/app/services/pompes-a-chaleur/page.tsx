@@ -5,8 +5,21 @@ export default function PompesAChaleurPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-500 to-primary-700 text-white section">
-        <div className="container-custom">
+      <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white section overflow-hidden">
+        {/* Image de fond hero - Placeholder */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-primary-600">
+            <div className="absolute inset-0 flex items-center justify-center text-primary-300">
+              <div className="text-center">
+                <div className="text-8xl mb-4">🔥</div>
+                <p className="text-sm">Image pompe à chaleur</p>
+                <p className="text-xs">1920x1080px recommandé</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="container-custom relative z-10">
           <div className="max-w-4xl">
             <div className="text-6xl mb-6">🔥</div>
             <h1 className="text-white mb-6">Pompes à Chaleur</h1>
