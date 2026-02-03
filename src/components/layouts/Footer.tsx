@@ -11,16 +11,16 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="md:col-span-1">
-            <div className="bg-white p-3 rounded-lg inline-block mb-4">
+            <div className="flex justify-center items-center mb- ">
               <Image 
                 src="/images/logo.png" 
                 alt="ClimatServ17" 
-                width={150} 
-                height={50}
-                className="h-10 w-auto"
+                width={75} 
+                height={15}
+                className="h-15 w-auto filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.4)] "
               />
             </div>
-            <p className="text-primary-100 text-sm">
+            <p className="text-primary-100 text-medium">
               Expert en climatisation, pompes à chaleur et adoucisseurs d'eau à La Rochelle.
             </p>
           </div>
