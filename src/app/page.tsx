@@ -24,7 +24,7 @@ export default function HomePage() {
         <div className="container-custom section relative z-10">
           <div className="max-w-3xl">
             <h1 className="text-white mb-6 animate-fade-in">
-              Votre expert Confort & Énergie
+              ClimatServ17 - Votre expert Confort & Énergie
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-primary-50 animate-slide-up">
               Installation, entretien et dépannage de pompes à chaleur, climatisations, ballons thermodynamiques et adoucisseurs à La Rochelle et dans un rayon de 60km

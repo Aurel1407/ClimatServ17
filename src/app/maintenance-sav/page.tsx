@@ -1,11 +1,127 @@
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Maintenance & SAV - Prenez RDV',
-  description: 'Réservez votre intervention en ligne : installation, entretien ou dépannage de climatisation et pompe à chaleur.',
-}
+import { useState } from 'react'
+
+type ServiceType = 'installation' | 'entretien' | 'depannage' | null
 
 export default function MaintenanceSAVPage() {
+  const [selectedService, setSelectedService] = useState<ServiceType>(null)
+  const [formData, setFormData] = useState({
+    nom: '',
+    prenom: '',
+    email: '',
+    telephone: '',
+    adresse: '',
+    codePostal: '',
+    ville: '',
+    datePreferee: '',
+    heurePreferee: '',
+    typeEquipement: '',
+    marque: '',
+    modele: '',
+    anneeInstallation: '',
+    description: '',
+    urgence: false
+  })
+
+  const handleServiceClick = (service: ServiceType) => {
+    setSelectedService(service)
+    // Réinitialiser le formulaire lors du changement de service
+    setFormData({
+      nom: '',
+      prenom: '',
+      email: '',
+      telephone: '',
+      adresse: '',
+      codePostal: '',
+      ville: '',
+      datePreferee: '',
+      heurePreferee: '',
+      typeEquipement: '',
+      marque: '',
+      modele: '',
+      anneeInstallation: '',
+      description: '',
+      urgence: false
+    })
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log('Données du formulaire:', { service: selectedService, ...formData })
+    alert('Demande de rendez-vous envoyée ! Nous vous contacterons rapidement.')
+  }
+
+  const getServiceTitle = () => {
+    if (selectedService === 'installation') {
+      return 'Installation de nouveau matériel'
+    }
+    if (selectedService === 'entretien') {
+      return 'Entretien et maintenance annuelle'
+    }
+    if (selectedService === 'depannage') {
+      return 'Dépannage et intervention rapide'
+    }
+    return ''
+  }
+
+  const getServiceButtonClass = (service: ServiceType) => {
+    const baseClasses = 'p-6 rounded-lg text-center transition-all'
+    const isSelected = selectedService === service
+    const selectedClasses = 'bg-primary-500 text-white shadow-lg scale-105'
+    const defaultClasses = 'bg-primary-50 hover:bg-primary-100'
+    
+    return `${baseClasses} ${isSelected ? selectedClasses : defaultClasses}`
+  }
+
+  const getServiceTitleClass = (service: ServiceType) => {
+    const baseClass = 'text-lg font-semibold mb-2'
+    return selectedService === service ? `${baseClass} text-white` : baseClass
+  }
+
+  const getDescriptionSectionTitle = () => {
+    if (selectedService === 'depannage') {
+      return 'Description de la panne'
+    }
+    if (selectedService === 'installation') {
+      return 'Détails de votre projet'
+    }
+    return 'Informations complémentaires'
+  }
+
+  const getDescriptionPlaceholder = () => {
+    if (selectedService === 'depannage') {
+      return "Décrivez les symptômes (bruit anormal, fuite, pas de chauffage/froid, etc.)"
+    }
+    if (selectedService === 'installation') {
+      return "Décrivez votre projet, surface à traiter, nombre de pièces, etc."
+    }
+    return "Remarques ou questions particulières"
+  }
+
+  const getDateSectionTitle = () => {
+    if (selectedService === 'depannage') {
+      return 'Disponibilités'
+    }
+    return 'Date souhaitée'
+  }
+
+  const shouldShowEquipmentInfo = () => {
+    return selectedService === 'entretien'
+  }
+
+  const shouldShowInstallationProject = () => {
+    return selectedService === 'installation'
+  }
+
   return (
     <div className="min-h-screen bg-neutral-50">
       <div className="container-custom py-12">
@@ -14,30 +130,404 @@ export default function MaintenanceSAVPage() {
         <div className="max-w-4xl mx-auto">
           <div className="card">
             <p className="text-center text-lg text-neutral-600 mb-8">
-              Formulaire de prise de rendez-vous à venir...
+              Sélectionnez le type d'intervention souhaitée
             </p>
             
             <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="p-6 bg-primary-50 rounded-lg text-center">
+              <button
+                onClick={() => handleServiceClick('installation')}
+                className={getServiceButtonClass('installation')}
+              >
                 <div className="text-4xl mb-3">🔧</div>
-                <h3 className="text-lg font-semibold mb-2">Installation</h3>
-                <p className="text-sm text-neutral-600">Nouveau matériel</p>
-              </div>
+                <h3 className={getServiceTitleClass('installation')}>
+                  Installation
+                </h3>
+                <p className="text-sm opacity-90">Nouveau matériel</p>
+              </button>
               
-              <div className="p-6 bg-primary-50 rounded-lg text-center">
+              <button
+                onClick={() => handleServiceClick('entretien')}
+                className={getServiceButtonClass('entretien')}
+              >
                 <div className="text-4xl mb-3">⚙️</div>
-                <h3 className="text-lg font-semibold mb-2">Entretien</h3>
-                <p className="text-sm text-neutral-600">Maintenance annuelle</p>
-              </div>
+                <h3 className={getServiceTitleClass('entretien')}>
+                  Entretien
+                </h3>
+                <p className="text-sm opacity-90">Maintenance annuelle</p>
+              </button>
               
-              <div className="p-6 bg-primary-50 rounded-lg text-center">
+              <button
+                onClick={() => handleServiceClick('depannage')}
+                className={getServiceButtonClass('depannage')}
+              >
                 <div className="text-4xl mb-3">🚨</div>
-                <h3 className="text-lg font-semibold mb-2">Dépannage</h3>
-                <p className="text-sm text-neutral-600">Intervention rapide</p>
-              </div>
+                <h3 className={getServiceTitleClass('depannage')}>
+                  Dépannage
+                </h3>
+                <p className="text-sm opacity-90">Intervention rapide</p>
+              </button>
             </div>
+
+            {selectedService && (
+              <div className="mt-8 border-t pt-8">
+                <h2 className="text-2xl font-semibold mb-6 text-primary-600">
+                  {getServiceTitle()}
+                </h2>
+
+                {selectedService === 'depannage' ? (
+                  <div className="space-y-6">
+                    {/* Affichage pour dépannage */}
+                    <div className="bg-red-50 border-2 border-red-200 rounded-lg p-8 text-center">
+                      <div className="text-6xl mb-4">📞</div>
+                      <h3 className="text-2xl font-bold text-red-800 mb-2">
+                        Urgence Dépannage
+                      </h3>
+                      <p className="text-lg text-neutral-700 mb-6">
+                        Contactez-nous directement pour une intervention rapide
+                      </p>
+                      <a
+                        href="tel:0688503112"
+                        className="inline-block bg-red-600 text-white text-3xl font-bold px-8 py-4 rounded-lg hover:bg-red-700 transition-colors"
+                      >
+                        06 88 50 31 12
+                      </a>
+                    </div>
+
+                    <div className="bg-neutral-50 p-6 rounded-lg">
+                      <h4 className="text-lg font-semibold mb-4 text-neutral-800">
+                        Informations à préparer avant l'appel :
+                      </h4>
+                      <ul className="space-y-3 text-neutral-700">
+                        <li className="flex items-start gap-3">
+                          <span className="text-primary-500 font-bold mt-1">•</span>
+                          <span><strong>Votre adresse complète</strong> et code postal</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-primary-500 font-bold mt-1">•</span>
+                          <span><strong>Type d'équipement concerné</strong> (climatisation, pompe à chaleur, chauffage)</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-primary-500 font-bold mt-1">•</span>
+                          <span><strong>Marque et modèle</strong> de l'appareil si possible</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-primary-500 font-bold mt-1">•</span>
+                          <span><strong>Description du problème</strong> (bruits anormaux, fuite, pas de chauffage/froid, codes erreur, etc.)</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-primary-500 font-bold mt-1">•</span>
+                          <span><strong>Vos disponibilités</strong> pour l'intervention</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-accent-50 border-l-4 border-accent-500 p-4 rounded">
+                      <p className="text-sm text-accent-800">
+                        <strong>💡 Astuce :</strong> Prenez une photo de la plaque signalétique de votre appareil avant d'appeler, elle contient des informations utiles pour le diagnostic.
+                      </p>
+                    </div>
+
+                    <div className="text-center">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedService(null)}
+                        className="px-6 py-3 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
+                      >
+                        Retour à la sélection
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Informations personnelles */}
+                  <div className="bg-neutral-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-4">Vos informations</h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="nom" className="block text-sm font-medium mb-1">
+                          Nom *
+                        </label>
+                        <input
+                          id="nom"
+                          type="text"
+                          name="nom"
+                          required
+                          value={formData.nom}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="prenom" className="block text-sm font-medium mb-1">
+                          Prénom *
+                        </label>
+                        <input
+                          id="prenom"
+                          type="text"
+                          name="prenom"
+                          required
+                          value={formData.prenom}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="email" className="block text-sm font-medium mb-1">
+                          Email *
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          name="email"
+                          required
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="telephone" className="block text-sm font-medium mb-1">
+                          Téléphone *
+                        </label>
+                        <input
+                          id="telephone"
+                          type="tel"
+                          name="telephone"
+                          required
+                          value={formData.telephone}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Adresse d'intervention */}
+                  <div className="bg-neutral-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-4">Adresse d'intervention</h3>
+                    <div className="space-y-4">
+                      <div>
+                        <label htmlFor="adresse" className="block text-sm font-medium mb-1">
+                          Adresse *
+                        </label>
+                        <input
+                          id="adresse"
+                          type="text"
+                          name="adresse"
+                          required
+                          value={formData.adresse}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        />
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="codePostal" className="block text-sm font-medium mb-1">
+                            Code postal *
+                          </label>
+                          <input
+                            id="codePostal"
+                            type="text"
+                            name="codePostal"
+                            required
+                            value={formData.codePostal}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="ville" className="block text-sm font-medium mb-1">
+                            Ville *
+                          </label>
+                          <input
+                            id="ville"
+                            type="text"
+                            name="ville"
+                            required
+                            value={formData.ville}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Date et heure */}
+                  <div className="bg-neutral-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-4">
+                      {getDateSectionTitle()}
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="datePreferee" className="block text-sm font-medium mb-1">
+                          Date préférée *
+                        </label>
+                        <input
+                          id="datePreferee"
+                          type="date"
+                          name="datePreferee"
+                          required
+                          value={formData.datePreferee}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="heurePreferee" className="block text-sm font-medium mb-1">
+                          Créneau horaire *
+                        </label>
+                        <select
+                          id="heurePreferee"
+                          name="heurePreferee"
+                          required
+                          value={formData.heurePreferee}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        >
+                          <option value="">Sélectionner</option>
+                          <option value="matin">Matin (8h-12h)</option>
+                          <option value="apres-midi">Après-midi (14h-18h)</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Informations sur l'équipement - visible pour entretien et dépannage */}
+                  {shouldShowEquipmentInfo() && (
+                    <div className="bg-neutral-50 p-6 rounded-lg">
+                      <h3 className="text-lg font-semibold mb-4">Votre équipement</h3>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="typeEquipement" className="block text-sm font-medium mb-1">
+                            Type d'équipement *
+                          </label>
+                          <select
+                            id="typeEquipement"
+                            name="typeEquipement"
+                            required
+                            value={formData.typeEquipement}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          >
+                            <option value="">Sélectionner</option>
+                            <option value="climatisation">Climatisation</option>
+                            <option value="pac-air-air">Pompe à chaleur Air/Air</option>
+                            <option value="pac-air-eau">Pompe à chaleur Air/Eau</option>
+                            <option value="chauffage">Système de chauffage</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="marque" className="block text-sm font-medium mb-1">
+                            Marque
+                          </label>
+                          <input
+                            id="marque"
+                            type="text"
+                            name="marque"
+                            value={formData.marque}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="modele" className="block text-sm font-medium mb-1">
+                            Modèle
+                          </label>
+                          <input
+                            id="modele"
+                            type="text"
+                            name="modele"
+                            value={formData.modele}
+                            onChange={handleInputChange}
+                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label htmlFor="anneeInstallation" className="block text-sm font-medium mb-1">
+                            Année d'installation
+                          </label>
+                          <input
+                            id="anneeInstallation"
+                            type="text"
+                            name="anneeInstallation"
+                            value={formData.anneeInstallation}
+                            onChange={handleInputChange}
+                            placeholder="Ex: 2020"
+                            className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Projet d'installation */}
+                  {shouldShowInstallationProject() && (
+                    <div className="bg-neutral-50 p-6 rounded-lg">
+                      <h3 className="text-lg font-semibold mb-4">Votre projet</h3>
+                      <div>
+                        <label htmlFor="typeEquipementInstallation" className="block text-sm font-medium mb-1">
+                          Type d'installation souhaitée *
+                        </label>
+                        <select
+                          id="typeEquipementInstallation"
+                          name="typeEquipement"
+                          required
+                          value={formData.typeEquipement}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        >
+                          <option value="">Sélectionner</option>
+                          <option value="climatisation">Climatisation</option>
+                          <option value="pac-air-air">Pompe à chaleur Air/Air</option>
+                          <option value="pac-air-eau">Pompe à chaleur Air/Eau</option>
+                          <option value="chauffage">Système de chauffage</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Description */}
+                  <div className="bg-neutral-50 p-6 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-4">
+                      {getDescriptionSectionTitle()}
+                    </h3>
+                    <label htmlFor="description" className="sr-only">
+                      {getDescriptionSectionTitle()}
+                    </label>
+                    <textarea
+                      id="description"
+                      name="description"
+                      value={formData.description}
+                      onChange={handleInputChange}
+                      rows={4}
+                      placeholder={getDescriptionPlaceholder()}
+                      className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  {/* Bouton de soumission */}
+                  <div className="flex gap-4">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedService(null)}
+                      className="px-6 py-3 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors"
+                    >
+                      Retour
+                    </button>
+                    <button
+                      type="submit"
+                      className="flex-1 bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors font-semibold"
+                    >
+                      Envoyer la demande de rendez-vous
+                    </button>
+                  </div>
+                </form>
+                )}
+              </div>
+            )}
             
-            <div className="bg-accent-50 border-l-4 border-accent-500 p-4 rounded">
+            <div className="bg-accent-50 border-l-4 border-accent-500 p-4 rounded mt-8">
               <p className="text-sm text-accent-800">
                 <strong>Zone de service :</strong> La Rochelle et 60km autour (17, 16, 79, 85)
               </p>
