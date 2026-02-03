@@ -125,9 +125,9 @@ npm run prisma:studio    # Interface admin Prisma
 
 ### Palette de couleurs
 
-- **Bleu Nuit** (#1A2B3C) : Couleur principale
-- **Orange Corail** (#FF7F50) : Accent / CTA
-- **Gris Technique** (#F4F4F4) : Backgrounds
+- **Bleu Corporate** (#0B4F8C) : Couleur principale
+- **Orange Énergique** (#E84C0A) : Accent / CTA
+- **Gris Neutre** (#F8F9FA) : Backgrounds
 
 ### Typographie
 
@@ -167,9 +167,14 @@ npm run prisma:studio    # Interface admin Prisma
 - [ ] Optimiser les images et icônes
 - [ ] Configurer le déploiement CI/CD
 
-## Auteur
+## Auteurs
 
-**ClimatServ17**
+- **Aurel1407** - Développement
+- **tanosv** - Développement
+
+## Client
+
+**ClimatServ17** - La Rochelle
 
 ## Licence
 
