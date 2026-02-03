@@ -27,36 +27,52 @@ Plateforme web moderne pour ClimatServ17, spécialiste en climatisation, pompes 
 ```
 ClimatServ17/
 ├── prisma/
-│   └── schema.prisma          # Schéma de base de données
+│   ├── schema.prisma          # Schéma de base de données
+│   ├── seed.ts                # Données de test
+│   └── tsconfig.json          # Config TypeScript pour Prisma
 ├── public/
-│   ├── images/                # Images optimisées
-│   └── icons/                 # Icônes SVG personnalisées
+│   └── images/                # Images optimisées (logo, hero)
 ├── src/
 │   ├── app/
-│   │   ├── api/              # API Routes
-│   │   │   ├── auth/         # Authentification Magic Link
-│   │   │   ├── appointments/ # Gestion des RDV
-│   │   │   └── documents/    # Upload/téléchargement docs
-│   │   ├── maintenance-sav/  # Page prise de RDV
-│   │   ├── espace-client/    # Portail client
-│   │   ├── contact/          # Page contact
-│   │   ├── layout.tsx        # Layout global
-│   │   ├── page.tsx          # Page d'accueil
-│   │   └── globals.css       # Styles globaux
+│   │   ├── api/               # API Routes
+│   │   │   ├── auth/          # Authentification Magic Link
+│   │   │   ├── appointments/  # Gestion des RDV
+│   │   │   └── documents/     # Upload/téléchargement docs
+│   │   ├── services/          # Pages de détail des services
+│   │   │   ├── pompes-a-chaleur/
+│   │   │   ├── climatisations/
+│   │   │   ├── ballons-thermodynamiques/
+│   │   │   ├── adoucisseurs/
+│   │   │   ├── entretien/
+│   │   │   └── depannage/
+│   │   ├── maintenance-sav/   # Page prise de RDV
+│   │   ├── espace-client/     # Portail client
+│   │   ├── contact/           # Page contact
+│   │   ├── accessibilite/     # Déclaration d'accessibilité
+│   │   ├── layout.tsx         # Layout global
+│   │   ├── page.tsx           # Page d'accueil
+│   │   └── globals.css        # Styles globaux
 │   ├── components/
-│   │   ├── ui/               # Composants UI réutilisables
-│   │   ├── layouts/          # Header, Footer, Navigation
-│   │   └── forms/            # Formulaires
+│   │   ├── ui/                # Composants UI réutilisables
+│   │   │   ├── Button.tsx
+│   │   │   ├── Input.tsx
+│   │   │   ├── Card.tsx
+│   │   │   └── ImagePlaceholder.tsx
+│   │   └── layouts/           # Header, Footer, Navigation
 │   ├── lib/
-│   │   ├── prisma.ts         # Client Prisma
-│   │   ├── utils.ts          # Fonctions utilitaires
-│   │   └── validations.ts    # Schémas Zod
+│   │   ├── prisma.ts          # Client Prisma
+│   │   ├── utils.ts           # Fonctions utilitaires
+│   │   └── validations.ts     # Schémas Zod
 │   └── types/
-│       └── index.ts          # Types TypeScript
-├── .env.example              # Variables d'environnement
+│       └── index.ts           # Types TypeScript
+├── .env.example               # Variables d'environnement
 ├── .gitignore
+├── IMAGES.md                  # Guide d'intégration des images
+├── README.md                  # Documentation du projet
 ├── next.config.js
 ├── package.json
+├── start.bat                  # Script démarrage Windows
+├── stop.bat                   # Script arrêt Windows
 ├── tailwind.config.ts
 └── tsconfig.json
 ```
