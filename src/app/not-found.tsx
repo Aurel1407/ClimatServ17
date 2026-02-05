@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Home, Search, Phone, ArrowLeft } from 'lucide-react';
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
 
 export default function NotFound() {
   return (
@@ -103,13 +104,15 @@ export default function NotFound() {
         <div className="mt-8 p-4 bg-accent-50 border border-accent-200 rounded-lg">
           <p className="text-sm text-neutral-700">
             <strong>Besoin d'aide ?</strong> Appelez-nous au{' '}
-            <a href="tel:0546525330" className="text-primary-600 hover:underline font-semibold">
-              05 46 52 53 30
-            </a>
+            <ProtectedPhone 
+              encoded="MDU0NjUyNTMzMA=="
+              className="text-primary-600 hover:underline font-semibold"
+            />
             {' '}ou pour une urgence :{' '}
-            <a href="tel:0688503112" className="text-accent-600 hover:underline font-semibold">
-              06 88 50 31 12
-            </a>
+            <ProtectedPhone 
+              encoded="MDY4ODUwMzExMg=="
+              className="text-accent-600 hover:underline font-semibold"
+            />
           </p>
         </div>
       </div>

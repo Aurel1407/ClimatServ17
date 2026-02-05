@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Calendar, CheckCircle, MapPin } from 'lucide-react'
 import ZoneInterventionMap from "@/components/ui/MapWrapper"
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
 
 
 export default function HomePage() {
@@ -37,10 +38,12 @@ export default function HomePage() {
                 <Calendar className="w-5 h-5" />
                 Prendre RDV
               </Link>
-              <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
+              <ProtectedPhone 
+                encoded="MDU0NjUyNTMzMA=="
+                className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+              >
                 <Phone className="w-5 h-5" />
-                05 46 52 53 30
-              </a>
+              </ProtectedPhone>
             </div>
           </div>
         </div>
@@ -207,10 +210,13 @@ export default function HomePage() {
       {/* Sticky Footer Mobile */}
       <div className="sticky-footer-mobile">
         <div className="flex gap-3">
-          <a href="tel:0546525330" className="btn btn-secondary flex-1">
+          <ProtectedPhone 
+            encoded="MDU0NjUyNTMzMA=="
+            className="btn btn-secondary flex-1"
+          >
             <Phone className="w-5 h-5" />
             Appeler
-          </a>
+          </ProtectedPhone>
           <Link href="/maintenance-sav" className="btn btn-primary flex-1">
             <Calendar className="w-5 h-5" />
             Prendre RDV

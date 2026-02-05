@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { Shield, Lock, Eye, Database, UserCheck, FileText, AlertCircle, Mail } from 'lucide-react';
 import Link from 'next/link';
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
+import { ENCODED_CONTACTS } from '@/lib/encoded-contacts'
 
 export const metadata: Metadata = {
   title: 'Politique de Confidentialité | ClimatServ17',
@@ -86,10 +88,10 @@ export default function PolitiqueConfidentialitePage() {
                   <p>17220 Sainte-Soulle, France</p>
                   <p>SIRET : 988 737 029 00013</p>
                   <p className="mt-4">
-                    <strong>Contact :</strong> <a href="mailto:climatserv17.contact@gmail.com" className="text-primary-600 hover:underline">climatserv17.contact@gmail.com</a>
+                    <strong>Contact :</strong> <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-primary-600 hover:underline" />
                   </p>
                   <p>
-                    <strong>Téléphone :</strong> <a href="tel:0546525330" className="text-primary-600 hover:underline">05 46 52 53 30</a>
+                    <strong>Téléphone :</strong> <ProtectedPhone encoded={ENCODED_CONTACTS.PHONE_MAIN} className="text-primary-600 hover:underline" />
                   </p>
                 </div>
               </div>
@@ -421,9 +423,7 @@ export default function PolitiqueConfidentialitePage() {
                 <div className="bg-primary-50 border border-primary-200 rounded-lg p-6 space-y-4">
                   <div>
                     <p className="font-semibold text-primary-800 mb-2">📧 Par email :</p>
-                    <a href="mailto:climatserv17.contact@gmail.com" className="text-primary-600 hover:underline text-lg">
-                      climatserv17.contact@gmail.com
-                    </a>
+                    <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-primary-600 hover:underline text-lg" />
                   </div>
 
                   <div>
@@ -550,12 +550,13 @@ export default function PolitiqueConfidentialitePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="mailto:climatserv17.contact@gmail.com"
+                <ProtectedEmail 
+                  encoded={ENCODED_CONTACTS.EMAIL_MAIN}
                   className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors"
                 >
                   <Mail className="w-5 h-5" />
-                  Nous contacter
+                  <span>Nous contacter</span>
+                </ProtectedEmail>
                 </a>
                 
                 <Link 

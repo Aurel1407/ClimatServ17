@@ -1,4 +1,6 @@
 import { Metadata } from 'next'
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
+import { ENCODED_CONTACTS } from '@/lib/encoded-contacts'
 
 export const metadata: Metadata = {
   title: 'Accessibilité',
@@ -51,15 +53,11 @@ export default function AccessibilitePage() {
             <ul className="space-y-2 text-neutral-700">
               <li>
                 <strong>Email :</strong>{' '}
-                <a href="mailto:climatserv17.contact@gmail.com" className="text-accent-500 hover:underline">
-                  climatserv17.contact@gmail.com
-                </a>
+                <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-accent-500 hover:underline" />
               </li>
               <li>
                 <strong>Téléphone :</strong>{' '}
-                <a href="tel:0546525330" className="text-accent-500 hover:underline">
-                  05 46 52 53 30
-                </a>
+                <ProtectedPhone encoded={ENCODED_CONTACTS.PHONE_MAIN} className="text-accent-500 hover:underline" />
               </li>
             </ul>
           </section>

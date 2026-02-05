@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, AlertCircle, Clock, Wrench } from 'lucide-react'
 import { Metadata } from 'next'
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
 
 export const metadata: Metadata = {
   title: 'Dépannage Climatisation & PAC - Intervention Rapide La Rochelle',
@@ -39,10 +40,10 @@ export default function DepannagePage() {
               Intervention rapide en cas de panne ou dysfonctionnement de votre installation
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:0688503112" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
-                <Phone className="w-5 h-5" />
-                Appeler maintenant : 06 88 50 31 12
-              </a>
+              <ProtectedPhone 
+                encoded="MDY4ODUwMzExMg=="
+                className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50"
+              />
             </div>
           </div>
         </div>
@@ -67,7 +68,10 @@ export default function DepannagePage() {
                 <div className="text-center p-4 bg-accent-50 rounded-lg">
                   <Phone className="w-8 h-8 text-accent-500 mx-auto mb-2" />
                   <p className="font-semibold">Appelez-nous</p>
-                  <a href="tel:0688503112" className="text-accent-500 hover:underline">06 88 50 31 12</a>
+                  <ProtectedPhone 
+                    encoded="MDY4ODUwMzExMg=="
+                    className="text-accent-500 hover:underline"
+                  />
                 </div>
 
                 <div className="text-center p-4 bg-accent-50 rounded-lg">
@@ -383,10 +387,10 @@ export default function DepannagePage() {
             Nos techniciens sont disponibles 7j/7 pour intervenir rapidement
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:0688503112" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
-              <Phone className="w-5 h-5" />
-              06 88 50 31 12
-            </a>
+            <ProtectedPhone 
+              encoded="MDY4ODUwMzExMg=="
+              className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50"
+            />
           </div>
         </div>
       </section>

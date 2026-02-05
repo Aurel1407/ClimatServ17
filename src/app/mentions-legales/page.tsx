@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import { Building2, Mail, Phone, Shield, Server, User } from 'lucide-react';
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
+import { ENCODED_CONTACTS } from '@/lib/encoded-contacts'
 
 export const metadata: Metadata = {
   title: 'Mentions Légales | ClimatServ17',
@@ -131,11 +133,9 @@ export default function MentionsLegalesPage() {
                   <Phone className="w-5 h-5 text-accent-500" />
                   <div>
                     <p className="font-semibold text-primary-700">Téléphone :</p>
-                    <a href="tel:0546525330" className="text-primary-600 hover:text-primary-700 hover:underline">
-                      05 46 52 53 30
-                    </a>
+                    <ProtectedPhone encoded={ENCODED_CONTACTS.PHONE_MAIN} className="text-primary-600 hover:text-primary-700 hover:underline" />
                     <p className="text-sm text-neutral-600 mt-1">
-                      Dépannage: <a href="tel:0688503112" className="text-primary-600 hover:underline">06 88 50 31 12</a>
+                      Dépannage: <ProtectedPhone encoded={ENCODED_CONTACTS.PHONE_URGENCY} className="text-primary-600 hover:underline" />
                     </p>
                   </div>
                 </div>
@@ -144,9 +144,7 @@ export default function MentionsLegalesPage() {
                   <Mail className="w-5 h-5 text-accent-500" />
                   <div>
                     <p className="font-semibold text-primary-700">Email :</p>
-                    <a href="mailto:climatserv17.contact@gmail.com" className="text-primary-600 hover:text-primary-700 hover:underline">
-                      climatserv17.contact@gmail.com
-                    </a>
+                    <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-primary-600 hover:text-primary-700 hover:underline" />
                   </div>
                 </div>
               </div>
@@ -227,7 +225,7 @@ export default function MentionsLegalesPage() {
                 </p>
                 
                 <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Par email : <a href="mailto:climatserv17.contact@gmail.com" className="text-primary-600 hover:underline">climatserv17.contact@gmail.com</a></li>
+                  <li>Par email : <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-primary-600 hover:underline" /></li>
                   <li>Par courrier : ClimatServ17, 29 rue du Levant, 17220 Sainte-Soulle</li>
                 </ul>
                 
@@ -312,9 +310,7 @@ export default function MentionsLegalesPage() {
                 <p>
                   La création de liens hypertextes vers le site ClimatServ17 nécessite une autorisation préalable. 
                   Pour toute demande, veuillez nous contacter à l'adresse{' '}
-                  <a href="mailto:climatserv17.contact@gmail.com" className="text-primary-600 hover:underline">
-                    climatserv17.contact@gmail.com
-                  </a>.
+                  <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-primary-600 hover:underline" />.
                 </p>
               </div>
             </div>
