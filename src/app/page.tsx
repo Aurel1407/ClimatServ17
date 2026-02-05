@@ -205,7 +205,7 @@ export default function HomePage() {
       </section>
 
       {/* Sticky Footer Mobile */}
-      <div className="sticky-footer-mobile">
+      <div className="sticky-footer-mobile fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white ">
         <div className="flex gap-3">
           <a href="tel:0546525330" className="btn btn-secondary flex-1">
             <Phone className="w-5 h-5" />
