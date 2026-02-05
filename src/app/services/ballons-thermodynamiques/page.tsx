@@ -1,5 +1,17 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, Droplets, Zap, Leaf, TrendingDown } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Ballon Thermodynamique - Installation à La Rochelle',
+  description: 'Installation de ballons thermodynamiques à La Rochelle. Production d\'eau chaude sanitaire économique et écologique. Jusqu\'\u00e0 70% d\'\u00e9conomies. Devis gratuit.',
+  keywords: ['ballon thermodynamique', 'chauffe-eau thermodynamique', 'eau chaude sanitaire', 'installation ballon', 'La Rochelle', 'économie énergie', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Ballons Thermodynamiques à La Rochelle | ClimatServ17',
+    description: 'Installation de ballons thermodynamiques économiques et écologiques',
+    url: 'https://climatserv17.fr/services/ballons-thermodynamiques',
+  }
+}
 
 export default function BallonsThermodynamiquesPage() {
   return (

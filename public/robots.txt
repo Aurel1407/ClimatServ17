@@ -1,0 +1,11 @@
+# Robots.txt pour ClimatServ17
+User-agent: *
+Allow: /
+
+# Interdire l'indexation des API et fichiers sensibles
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://climatserv17.fr/sitemap.xml

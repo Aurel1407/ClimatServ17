@@ -1,5 +1,17 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, Thermometer, Zap, Leaf, Volume2 } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Pompes à Chaleur - Installation & Entretien à La Rochelle',
+  description: 'Installation, entretien et dépannage de pompes à chaleur air-air et air-eau à La Rochelle et dans un rayon de 60km. Solutions économiques et écologiques. Devis gratuit.',
+  keywords: ['pompe à chaleur', 'PAC air-air', 'PAC air-eau', 'installation PAC', 'entretien pompe à chaleur', 'La Rochelle', 'Charente-Maritime', 'chauffage écologique'],
+  openGraph: {
+    title: 'Pompes à Chaleur à La Rochelle | ClimatServ17',
+    description: 'Expert en installation de pompes à chaleur performantes et économiques',
+    url: 'https://climatserv17.fr/services/pompes-a-chaleur',
+  }
+}
 
 export default function PompesAChaleurPage() {
   return (

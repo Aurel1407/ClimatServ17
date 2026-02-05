@@ -1,5 +1,17 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, ClipboardCheck, FileCheck, Shield, Clock } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Entretien Climatisation & PAC - Maintenance à La Rochelle',
+  description: 'Entretien et maintenance de climatisation, pompes à chaleur et ballons thermodynamiques à La Rochelle. Attestation d\'entretien obligatoire. Contrats de maintenance.',
+  keywords: ['entretien climatisation', 'maintenance PAC', 'contrat entretien', 'attestation entretien', 'La Rochelle', 'maintenance préventive', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Entretien & Maintenance à La Rochelle | ClimatServ17',
+    description: 'Service d\'entretien professionnel pour tous vos équipements',
+    url: 'https://climatserv17.fr/services/entretien',
+  }
+}
 
 export default function EntretienPage() {
   return (

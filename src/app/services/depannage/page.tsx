@@ -1,5 +1,17 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, AlertCircle, Clock, Wrench } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Dépannage Climatisation & PAC - Intervention Rapide La Rochelle',
+  description: 'Dépannage rapide de climatisation et pompes à chaleur à La Rochelle. Intervention 7j/7 en cas d\'urgence. Diagnostics précis et réparations durables.',
+  keywords: ['dépannage climatisation', 'dépannage PAC', 'urgence climatisation', 'réparation clim', 'La Rochelle', 'panne climatisation', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Dépannage Rapide à La Rochelle | ClimatServ17',
+    description: 'Intervention rapide 7j/7 pour dépannage de climatisation et PAC',
+    url: 'https://climatserv17.fr/services/depannage',
+  }
+}
 
 export default function DepannagePage() {
   return (

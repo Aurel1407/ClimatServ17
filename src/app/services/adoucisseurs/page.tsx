@@ -1,5 +1,17 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, Droplets, Shield, Sparkles, Heart } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Adoucisseur d\'Eau - Installation & Entretien à La Rochelle',
+  description: 'Installation et entretien d\'adoucisseurs d\'eau à La Rochelle. Protégez vos équipements du calcaire et profitez d\'une eau plus douce. Devis gratuit.',
+  keywords: ['adoucisseur eau', 'adoucisseur La Rochelle', 'installation adoucisseur', 'entretien adoucisseur', 'eau calcaire', 'traitement eau', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Adoucisseurs d\'Eau à La Rochelle | ClimatServ17',
+    description: 'Expert en installation d\'adoucisseurs d\'eau pour une eau plus douce',
+    url: 'https://climatserv17.fr/services/adoucisseurs',
+  }
+}
 
 export default function AdoucisseursPage() {
   return (

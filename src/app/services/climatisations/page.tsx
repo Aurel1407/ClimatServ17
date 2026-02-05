@@ -1,5 +1,17 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, Snowflake, Sun, Wind, Shield } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Climatisation - Installation & Entretien à La Rochelle',
+  description: 'Installation, entretien et dépannage de climatisation réversible à La Rochelle. Systèmes mono-split et multi-split. Confort été/hiver. Devis gratuit.',
+  keywords: ['climatisation', 'climatisation réversible', 'clim La Rochelle', 'installation climatisation', 'entretien climatisation', 'mono-split', 'multi-split', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Climatisation à La Rochelle | ClimatServ17',
+    description: 'Spécialiste de la climatisation réversible pour votre confort toute l\'année',
+    url: 'https://climatserv17.fr/services/climatisations',
+  }
+}
 
 export default function ClimatisationsPage() {
   return (

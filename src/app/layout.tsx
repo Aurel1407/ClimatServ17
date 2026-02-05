@@ -28,6 +28,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'ClimatServ17' }],
   creator: 'ClimatServ17',
   publisher: 'ClimatServ17',
+  manifest: '/manifest.json',
   robots: {
     index: true,
     follow: true,
@@ -43,6 +44,10 @@ export const metadata: Metadata = {
   verification: {
     google: 'votre-code-google-search-console',
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
@@ -50,8 +55,65 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ClimatServ17",
+    "image": "https://climatserv17.fr/images/logo.png",
+    "@id": "https://climatserv17.fr",
+    "url": "https://climatserv17.fr",
+    "telephone": "+33546525330",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "La Rochelle",
+      "addressLocality": "La Rochelle",
+      "postalCode": "17000",
+      "addressRegion": "Nouvelle-Aquitaine",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 46.1591126,
+      "longitude": -1.1520434
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/climatserv17"
+    ],
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.1591126,
+        "longitude": -1.1520434
+      },
+      "geoRadius": "60000"
+    },
+    "description": "Installation, entretien et dépannage de climatisation, pompes à chaleur, ballons thermodynamiques et adoucisseurs d'eau à La Rochelle et dans un rayon de 60km."
+  }
+
   return (
     <html lang="fr" className={cn(inter.variable, montserrat.variable)}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased bg-neutral-50 text-primary-800">
         <a 
           href="#main-content" 
