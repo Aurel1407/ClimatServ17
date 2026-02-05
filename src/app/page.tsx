@@ -104,7 +104,7 @@ export default function HomePage() {
             <p className="text-lg text-neutral-700 mb-16">
               Nous intervenons à La Rochelle et dans un rayon de 60km (Charente-Maritime et départements limitrophes)
             </p>
-            <div className="-mb-20">
+            <div className="-mb-20 relative z-0">
               <ZoneInterventionMap/>
               </div>
           </div>
