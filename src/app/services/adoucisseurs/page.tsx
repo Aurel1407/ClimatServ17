@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, Droplets, Shield, Sparkles, Heart } from 'lucide-react'
 import { Metadata } from 'next'
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
 
 export const metadata: Metadata = {
   title: 'Adoucisseur d\'Eau - Installation & Entretien à La Rochelle',
@@ -43,10 +44,10 @@ export default function AdoucisseursPage() {
                 <Calendar className="w-5 h-5" />
                 Demander un devis gratuit
               </Link>
-              <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-                <Phone className="w-5 h-5" />
-                05 46 52 53 30
-              </a>
+              <ProtectedPhone 
+                encoded="MDU0NjUyNTMzMA=="
+                className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+              />
             </div>
           </div>
         </div>
@@ -402,10 +403,10 @@ export default function AdoucisseursPage() {
               <Calendar className="w-5 h-5" />
               Prendre rendez-vous
             </Link>
-            <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-              <Phone className="w-5 h-5" />
-              05 46 52 53 30
-            </a>
+            <ProtectedPhone 
+              encoded="MDU0NjUyNTMzMA=="
+              className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+            />
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react'
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -77,19 +78,24 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <a href="tel:0546525330" className="hover:text-white transition-colors block">
-                    05 46 52 53 30
-                  </a>
-                  <a href="tel:0688503112" className="text-xs hover:text-white transition-colors">
-                    Dépannage: 06 88 50 31 12
-                  </a>
+                  <ProtectedPhone 
+                    encoded="MDU0NjUyNTMzMA==" 
+                    className="hover:text-white transition-colors block"
+                  />
+                  <span className="text-xs">
+                    Dépannage: <ProtectedPhone 
+                      encoded="MDY4ODUwMzExMg==" 
+                      className="hover:text-white transition-colors"
+                    />
+                  </span>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="mailto:climatserv17.contact@gmail.com" className="hover:text-white transition-colors">
-                  climatserv17.contact@gmail.com
-                </a>
+                <ProtectedEmail 
+                  encoded="Y2xpbWF0c2VydjE3LmNvbnRhY3RAZ21haWwuY29t" 
+                  className="hover:text-white transition-colors"
+                />
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />

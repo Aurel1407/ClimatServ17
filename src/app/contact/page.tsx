@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Phone, Mail, MapPin } from 'lucide-react'
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -68,11 +69,15 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-accent-500 mt-1" />
                   <div>
                     <p className="font-semibold">Téléphone</p>
-                    <a href="tel:0546525330" className="text-accent-500 hover:underline">
-                      05 46 52 53 30
-                    </a>
+                    <ProtectedPhone 
+                      encoded="MDU0NjUyNTMzMA=="
+                      className="text-accent-500 hover:underline"
+                    />
                     <p className="text-sm text-neutral-600 mt-1">
-                      Dépannage/Entretien: <a href="tel:0688503112" className="text-accent-500 hover:underline">06 88 50 31 12</a>
+                      Dépannage/Entretien: <ProtectedPhone 
+                        encoded="MDY4ODUwMzExMg=="
+                        className="text-accent-500 hover:underline"
+                      />
                     </p>
                   </div>
                 </div>
@@ -81,9 +86,10 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 text-accent-500 mt-1" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <a href="mailto:climatserv17.contact@gmail.com" className="text-accent-500 hover:underline">
-                      climatserv17.contact@gmail.com
-                    </a>
+                    <ProtectedEmail 
+                      encoded="Y2xpbWF0c2VydjE3LmNvbnRhY3RAZ21haWwuY29t"
+                      className="text-accent-500 hover:underline"
+                    />
                   </div>
                 </div>
                 
