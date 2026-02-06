@@ -1,12 +1,13 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react'
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
   
   return (
-    <footer className="bg-primary-500 text-white" role="contentinfo">
+    <footer className="bg-primary-500 text-white pb-24 md:pb-0" role="contentinfo">
       <div className="container-custom py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
@@ -40,11 +41,7 @@ export default function Footer() {
                   Prendre RDV
                 </Link>
               </li>
-              <li>
-                <Link href="/espace-client" className="hover:text-white transition-colors">
-                  Espace Client
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
                   Contact
@@ -77,19 +74,24 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
                 <div>
-                  <a href="tel:0546525330" className="hover:text-white transition-colors block">
-                    05 46 52 53 30
-                  </a>
-                  <a href="tel:0688503112" className="text-xs hover:text-white transition-colors">
-                    Dépannage: 06 88 50 31 12
-                  </a>
+                  <ProtectedPhone 
+                    encoded="MDU0NjUyNTMzMA==" 
+                    className="hover:text-white transition-colors block"
+                  />
+                  <span className="text-xs">
+                    Dépannage: <ProtectedPhone 
+                      encoded="MDY4ODUwMzExMg==" 
+                      className="hover:text-white transition-colors"
+                    />
+                  </span>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <a href="mailto:climatserv17.contact@gmail.com" className="hover:text-white transition-colors">
-                  climatserv17.contact@gmail.com
-                </a>
+                <ProtectedEmail 
+                  encoded="Y2xpbWF0c2VydjE3LmNvbnRhY3RAZ21haWwuY29t" 
+                  className="hover:text-white transition-colors"
+                />
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
@@ -107,11 +109,8 @@ export default function Footer() {
             </p>
             
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/p/Climatserv17-61578692780192/" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61578692780192" target="_blank" rel="noopener noreferrer" className="text-primary-100 hover:text-white transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-primary-100 hover:text-white transition-colors" aria-label="Instagram">
-                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>

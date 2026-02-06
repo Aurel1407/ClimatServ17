@@ -1,22 +1,32 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, AlertCircle, Clock, Wrench } from 'lucide-react'
+import { Metadata } from 'next'
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
+
+export const metadata: Metadata = {
+  title: 'Dépannage Climatisation & PAC - Intervention Rapide La Rochelle',
+  description: 'Dépannage rapide de climatisation et pompes à chaleur à La Rochelle. Intervention 7j/7 en cas d\'urgence. Diagnostics précis et réparations durables.',
+  keywords: ['dépannage climatisation', 'dépannage PAC', 'urgence climatisation', 'réparation clim', 'La Rochelle', 'panne climatisation', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Dépannage Rapide à La Rochelle | ClimatServ17',
+    description: 'Intervention rapide 7j/7 pour dépannage de climatisation et PAC',
+    url: 'https://climatserv17.fr/services/depannage',
+  }
+}
 
 export default function DepannagePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-accent-500 to-accent-700 text-white section overflow-hidden">
-        {/* Image de fond hero - Placeholder */}
+        {/* Image de fond hero */}
         <div className="absolute inset-0 opacity-20">
-          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-accent-600">
-            <div className="absolute inset-0 flex items-center justify-center text-accent-300">
-              <div className="text-center">
-                <div className="text-8xl mb-4">🚨</div>
-                <p className="text-sm">Image dépannage urgence</p>
-                <p className="text-xs">1920x1080px recommandé</p>
-              </div>
-            </div>
-          </div>
+          <img 
+            src="/images/depannage-hero.webp" 
+            alt="Dépannage climatisation" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-accent-600 to-transparent"></div>
         </div>
         
         <div className="container-custom relative z-10">
@@ -27,10 +37,10 @@ export default function DepannagePage() {
               Intervention rapide en cas de panne ou dysfonctionnement de votre installation
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="tel:0688503112" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
-                <Phone className="w-5 h-5" />
-                Appeler maintenant : 06 88 50 31 12
-              </a>
+              <ProtectedPhone 
+                encoded="MDY4ODUwMzExMg=="
+                className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50"
+              />
             </div>
           </div>
         </div>
@@ -55,7 +65,10 @@ export default function DepannagePage() {
                 <div className="text-center p-4 bg-accent-50 rounded-lg">
                   <Phone className="w-8 h-8 text-accent-500 mx-auto mb-2" />
                   <p className="font-semibold">Appelez-nous</p>
-                  <a href="tel:0688503112" className="text-accent-500 hover:underline">06 88 50 31 12</a>
+                  <ProtectedPhone 
+                    encoded="MDY4ODUwMzExMg=="
+                    className="text-accent-500 hover:underline"
+                  />
                 </div>
 
                 <div className="text-center p-4 bg-accent-50 rounded-lg">
@@ -371,10 +384,10 @@ export default function DepannagePage() {
             Nos techniciens sont disponibles 7j/7 pour intervenir rapidement
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:0688503112" className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50">
-              <Phone className="w-5 h-5" />
-              06 88 50 31 12
-            </a>
+            <ProtectedPhone 
+              encoded="MDY4ODUwMzExMg=="
+              className="btn btn-primary bg-white text-accent-500 hover:bg-accent-50"
+            />
           </div>
         </div>
       </section>

@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { FileText, CheckCircle, AlertCircle, Euro, Calendar, Shield, Scale } from 'lucide-react';
 import Link from 'next/link';
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
+import { ENCODED_CONTACTS } from '@/lib/encoded-contacts'
 
 export const metadata: Metadata = {
   title: 'Conditions Générales de Vente | ClimatServ17',
@@ -449,7 +451,7 @@ export default function ConditionsGeneralesPage() {
                 </p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
                   <li>Courrier recommandé avec accusé de réception</li>
-                  <li>Email à : <a href="mailto:climatserv17.contact@gmail.com" className="text-primary-600 hover:underline">climatserv17.contact@gmail.com</a></li>
+                  <li>Email à : <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-primary-600 hover:underline" /></li>
                 </ul>
 
                 <p className="text-sm text-neutral-600 mt-4">
@@ -586,8 +588,8 @@ export default function ConditionsGeneralesPage() {
                     trouver une solution amiable :
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-4 mt-2">
-                    <li>Email : <a href="mailto:climatserv17.contact@gmail.com" className="text-primary-600 hover:underline">climatserv17.contact@gmail.com</a></li>
-                    <li>Téléphone : <a href="tel:0546525330" className="text-primary-600 hover:underline">05 46 52 53 30</a></li>
+                    <li>Email : <ProtectedEmail encoded={ENCODED_CONTACTS.EMAIL_MAIN} className="text-primary-600 hover:underline" /></li>
+                    <li>Téléphone : <ProtectedPhone encoded={ENCODED_CONTACTS.PHONE_MAIN} className="text-primary-600 hover:underline" /></li>
                   </ul>
                 </div>
 
@@ -652,12 +654,12 @@ export default function ConditionsGeneralesPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="mailto:climatserv17.contact@gmail.com"
+                <ProtectedEmail 
+                  encoded={ENCODED_CONTACTS.EMAIL_MAIN}
                   className="inline-flex items-center justify-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors"
                 >
-                  Nous contacter
-                </a>
+                  <span>Nous contacter</span>
+                </ProtectedEmail>
                 
                 <Link 
                   href="/contact"

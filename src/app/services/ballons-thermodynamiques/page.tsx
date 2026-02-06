@@ -1,5 +1,18 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, Droplets, Zap, Leaf, TrendingDown } from 'lucide-react'
+import { Metadata } from 'next'
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
+
+export const metadata: Metadata = {
+  title: 'Ballon Thermodynamique - Installation à La Rochelle',
+  description: 'Installation de ballons thermodynamiques à La Rochelle. Production d\'eau chaude sanitaire économique et écologique. Jusqu\'\u00e0 70% d\'\u00e9conomies. Devis gratuit.',
+  keywords: ['ballon thermodynamique', 'chauffe-eau thermodynamique', 'eau chaude sanitaire', 'installation ballon', 'La Rochelle', 'économie énergie', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Ballons Thermodynamiques à La Rochelle | ClimatServ17',
+    description: 'Installation de ballons thermodynamiques économiques et écologiques',
+    url: 'https://climatserv17.fr/services/ballons-thermodynamiques',
+  }
+}
 
 export default function BallonsThermodynamiquesPage() {
   return (
@@ -31,10 +44,10 @@ export default function BallonsThermodynamiquesPage() {
                 <Calendar className="w-5 h-5" />
                 Demander un devis gratuit
               </Link>
-              <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-                <Phone className="w-5 h-5" />
-                05 46 52 53 30
-              </a>
+              <ProtectedPhone 
+                encoded="MDU0NjUyNTMzMA=="
+                className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+              />
             </div>
           </div>
         </div>
@@ -308,10 +321,10 @@ export default function BallonsThermodynamiquesPage() {
               <Calendar className="w-5 h-5" />
               Prendre rendez-vous
             </Link>
-            <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-              <Phone className="w-5 h-5" />
-              05 46 52 53 30
-            </a>
+            <ProtectedPhone 
+              encoded="MDU0NjUyNTMzMA=="
+              className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+            />
           </div>
         </div>
       </section>

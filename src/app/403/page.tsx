@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Home, ShieldAlert, Phone, Mail } from 'lucide-react';
+import { ProtectedPhone, ProtectedEmail } from '@/components/ui/ProtectedContact'
+import { ENCODED_CONTACTS } from '@/lib/encoded-contacts'
 
 export const metadata: Metadata = {
   title: 'Accès interdit | ClimatServ17',
@@ -71,21 +73,19 @@ export default function ForbiddenPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:0546525330"
+            <ProtectedPhone 
+              encoded={ENCODED_CONTACTS.PHONE_MAIN}
               className="inline-flex items-center justify-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
             >
               <Phone className="w-5 h-5" />
-              05 46 52 53 30
-            </a>
+            </ProtectedPhone>
             
-            <a 
-              href="mailto:climatserv17.contact@gmail.com"
+            <ProtectedEmail 
+              encoded={ENCODED_CONTACTS.EMAIL_MAIN}
               className="inline-flex items-center justify-center gap-2 text-primary-600 hover:text-primary-700 font-semibold"
             >
               <Mail className="w-5 h-5" />
-              climatserv17.contact@gmail.com
-            </a>
+            </ProtectedEmail>
           </div>
         </div>
 

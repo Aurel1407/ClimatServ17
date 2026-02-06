@@ -4,6 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Calendar,Phone, Menu, X } from 'lucide-react'
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
+import { ENCODED_CONTACTS } from '@/lib/encoded-contacts'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -31,9 +33,7 @@ export default function Header() {
             <Link href="/" className="text-primary-700 hover:text-accent-500 font-medium transition-colors" aria-current="page">
               Accueil
             </Link>
-            <Link href="/espace-client" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
-              Espace Client
-            </Link>
+            
             <Link href="/contact" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
               Contact
             </Link>
@@ -41,14 +41,12 @@ export default function Header() {
           
           {/* CTA Desktop */}
           <div className="hidden md:flex items-center pl-6 gap-3">
-            <a 
-              href="tel:0546525330" 
+            <ProtectedPhone 
+              encoded={ENCODED_CONTACTS.PHONE_MAIN}
               className="flex items-center gap-2 text-primary-700 hover:text-accent-500 font-semibold transition-colors"
-              aria-label="Appeler le 05 46 52 53 30"
             >
               <Phone className="w-5 h-5" aria-hidden="true" />
-              <span>05 46 52 53 30</span>
-            </a>
+            </ProtectedPhone>
             <Link href="/maintenance-sav" className="btn btn-primary">
             <Calendar className="w-5 h-5" />
               Prendre RDV
@@ -90,13 +88,7 @@ export default function Header() {
               >
                 Prendre RDV
               </Link>
-              <Link 
-                href="/espace-client" 
-                className="text-primary-700 hover:text-accent-500 font-medium transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Espace Client
-              </Link>
+              
               <Link 
                 href="/contact" 
                 className="text-primary-700 hover:text-accent-500 font-medium transition-colors"
@@ -104,14 +96,12 @@ export default function Header() {
               >
                 Contact
               </Link>
-              <a 
-                href="tel:0546525330" 
+              <ProtectedPhone 
+                encoded={ENCODED_CONTACTS.PHONE_MAIN}
                 className="flex items-center gap-2 text-primary-700 hover:text-accent-500 font-semibold transition-colors"
-                aria-label="Appeler le 05 46 52 53 30"
               >
                 <Phone className="w-5 h-5" aria-hidden="true" />
-                <span>05 46 52 53 30</span>
-              </a>
+              </ProtectedPhone>
             </div>
           </nav>
         )}

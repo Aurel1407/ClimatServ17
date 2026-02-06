@@ -1,22 +1,33 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, Snowflake, Sun, Wind, Shield } from 'lucide-react'
+import { Metadata } from 'next'
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
+
+export const metadata: Metadata = {
+  title: 'Climatisation - Installation & Entretien à La Rochelle',
+  description: 'Installation, entretien et dépannage de climatisation réversible à La Rochelle. Systèmes mono-split et multi-split. Confort été/hiver. Devis gratuit.',
+  keywords: ['climatisation', 'climatisation réversible', 'clim La Rochelle', 'installation climatisation', 'entretien climatisation', 'mono-split', 'multi-split', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Climatisation à La Rochelle | ClimatServ17',
+    description: 'Spécialiste de la climatisation réversible pour votre confort toute l\'année',
+    url: 'https://climatserv17.fr/services/climatisations',
+  }
+}
 
 export default function ClimatisationsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white section overflow-hidden">
-        {/* Image de fond hero - Placeholder */}
+        {/* Image de fond hero */}
         <div className="absolute inset-0 opacity-20">
-          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-primary-600">
-            <div className="absolute inset-0 flex items-center justify-center text-primary-300">
-              <div className="text-center">
-                <div className="text-8xl mb-4">❄️</div>
-                <p className="text-sm">Image climatisation</p>
-                <p className="text-xs">1920x1080px recommandé</p>
-              </div>
-            </div>
-          </div>
+          <img 
+            src="/images/clim-hero.webp" 
+            alt="Climatisation" 
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 30%' }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-transparent"></div>
         </div>
         
         <div className="container-custom relative z-10">
@@ -31,10 +42,10 @@ export default function ClimatisationsPage() {
                 <Calendar className="w-5 h-5" />
                 Demander un devis gratuit
               </Link>
-              <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-                <Phone className="w-5 h-5" />
-                05 46 52 53 30
-              </a>
+              <ProtectedPhone 
+                encoded="MDU0NjUyNTMzMA=="
+                className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+              />
             </div>
           </div>
         </div>
@@ -309,10 +320,10 @@ export default function ClimatisationsPage() {
               <Calendar className="w-5 h-5" />
               Prendre rendez-vous
             </Link>
-            <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-              <Phone className="w-5 h-5" />
-              05 46 52 53 30
-            </a>
+            <ProtectedPhone 
+              encoded="MDU0NjUyNTMzMA=="
+              className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+            />
           </div>
         </div>
       </section>

@@ -1,22 +1,32 @@
 import Link from 'next/link'
 import { Phone, Calendar, CheckCircle, ClipboardCheck, FileCheck, Shield, Clock } from 'lucide-react'
+import { Metadata } from 'next'
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
+
+export const metadata: Metadata = {
+  title: 'Entretien Climatisation & PAC - Maintenance à La Rochelle',
+  description: 'Entretien et maintenance de climatisation, pompes à chaleur et ballons thermodynamiques à La Rochelle. Attestation d\'entretien obligatoire. Contrats de maintenance.',
+  keywords: ['entretien climatisation', 'maintenance PAC', 'contrat entretien', 'attestation entretien', 'La Rochelle', 'maintenance préventive', 'Charente-Maritime'],
+  openGraph: {
+    title: 'Entretien & Maintenance à La Rochelle | ClimatServ17',
+    description: 'Service d\'entretien professionnel pour tous vos équipements',
+    url: 'https://climatserv17.fr/services/entretien',
+  }
+}
 
 export default function EntretienPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white section overflow-hidden">
-        {/* Image de fond hero - Placeholder */}
+        {/* Image de fond hero */}
         <div className="absolute inset-0 opacity-20">
-          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-primary-600">
-            <div className="absolute inset-0 flex items-center justify-center text-primary-300">
-              <div className="text-center">
-                <div className="text-8xl mb-4">🔧</div>
-                <p className="text-sm">Image entretien/maintenance</p>
-                <p className="text-xs">1920x1080px recommandé</p>
-              </div>
-            </div>
-          </div>
+          <img 
+            src="/images/entretien-hero.webp" 
+            alt="Entretien pompe à chaleur" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-transparent"></div>
         </div>
         
         <div className="container-custom relative z-10">
@@ -31,10 +41,10 @@ export default function EntretienPage() {
                 <Calendar className="w-5 h-5" />
                 Prendre rendez-vous
               </Link>
-              <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-                <Phone className="w-5 h-5" />
-                05 46 52 53 30
-              </a>
+              <ProtectedPhone 
+                encoded="MDU0NjUyNTMzMA=="
+                className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+              />
             </div>
           </div>
         </div>
@@ -383,10 +393,10 @@ export default function EntretienPage() {
               <Calendar className="w-5 h-5" />
               Prendre rendez-vous
             </Link>
-            <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
-              <Phone className="w-5 h-5" />
-              05 46 52 53 30
-            </a>
+            <ProtectedPhone 
+              encoded="MDU0NjUyNTMzMA=="
+              className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+            />
           </div>
         </div>
       </section>

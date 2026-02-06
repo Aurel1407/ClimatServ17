@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Calendar, CheckCircle, MapPin } from 'lucide-react'
 import ZoneInterventionMap from "@/components/ui/MapWrapper"
+import { ProtectedPhone } from '@/components/ui/ProtectedContact'
 
 
 export default function HomePage() {
@@ -10,18 +11,14 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white overflow-hidden">
-        {/* Image de fond hero - Placeholder */}
+        {/* Image de fond hero */}
         <div className="absolute inset-0 opacity-20">
-          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-primary-600">
-            {/* Placeholder pour image hero (climatisation, pompe à chaleur) */}
-            <div className="absolute inset-0 flex items-center justify-center text-primary-300">
-              <div className="text-center">
-                <div className="text-8xl mb-4">❄️</div>
-                <p className="text-sm">Image hero à remplacer</p>
-                <p className="text-xs">1920x1080px recommandé</p>
-              </div>
-            </div>
-          </div>
+          <img 
+            src="/images/hero-banner.webp" 
+            alt="ClimatServ17 - Climatisation et pompe à chaleur" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-transparent"></div>
         </div>
         
         <div className="container-custom section relative z-10">
@@ -37,10 +34,12 @@ export default function HomePage() {
                 <Calendar className="w-5 h-5" />
                 Prendre RDV
               </Link>
-              <a href="tel:0546525330" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500">
+              <ProtectedPhone 
+                encoded="MDU0NjUyNTMzMA=="
+                className="btn btn-outline border-white text-white hover:bg-white hover:text-primary-500"
+              >
                 <Phone className="w-5 h-5" />
-                05 46 52 53 30
-              </a>
+              </ProtectedPhone>
             </div>
           </div>
         </div>
@@ -104,7 +103,7 @@ export default function HomePage() {
             <p className="text-lg text-neutral-700 mb-16">
               Nous intervenons à La Rochelle et dans un rayon de 60km (Charente-Maritime et départements limitrophes)
             </p>
-            <div className="-mb-20">
+            <div className="-mb-20 relative z-0">
               <ZoneInterventionMap/>
               </div>
           </div>
@@ -205,12 +204,15 @@ export default function HomePage() {
       </section>
 
       {/* Sticky Footer Mobile */}
-      <div className="sticky-footer-mobile">
+      <div className="sticky-footer-mobile fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white ">
         <div className="flex gap-3">
-          <a href="tel:0546525330" className="btn btn-secondary flex-1">
+          <ProtectedPhone 
+            encoded="MDU0NjUyNTMzMA=="
+            className="btn btn-secondary flex-1"
+          >
             <Phone className="w-5 h-5" />
             Appeler
-          </a>
+          </ProtectedPhone>
           <Link href="/maintenance-sav" className="btn btn-primary flex-1">
             <Calendar className="w-5 h-5" />
             Prendre RDV
