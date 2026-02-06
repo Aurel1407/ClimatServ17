@@ -41,11 +41,7 @@ export default function Footer() {
                   Prendre RDV
                 </Link>
               </li>
-              <li>
-                <Link href="/espace-client" className="hover:text-white transition-colors">
-                  Espace Client
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
                   Contact
