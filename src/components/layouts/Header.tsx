@@ -33,9 +33,7 @@ export default function Header() {
             <Link href="/" className="text-primary-700 hover:text-accent-500 font-medium transition-colors" aria-current="page">
               Accueil
             </Link>
-            <Link href="/espace-client" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
-              Espace Client
-            </Link>
+            
             <Link href="/contact" className="text-primary-700 hover:text-accent-500 font-medium transition-colors">
               Contact
             </Link>
@@ -90,13 +88,7 @@ export default function Header() {
               >
                 Prendre RDV
               </Link>
-              <Link 
-                href="/espace-client" 
-                className="text-primary-700 hover:text-accent-500 font-medium transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Espace Client
-              </Link>
+              
               <Link 
                 href="/contact" 
                 className="text-primary-700 hover:text-accent-500 font-medium transition-colors"
