@@ -70,6 +70,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Spam detected' }, { status: 400 })
   }
 
+  // Required fields validation
+  if (!payload.prenom || !payload.nom || !payload.email || !payload.message) {
+    return NextResponse.json({ message: 'Veuillez renseigner prénom, nom, email et message.' }, { status: 400 })
+  }
+
   // Minimal timing check (prevent super-fast bots)
   const now = Date.now()
   const startedAt = Number(payload.startedAt || 0)
