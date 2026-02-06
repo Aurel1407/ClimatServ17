@@ -8,7 +8,7 @@ const RATE_LIMIT_WINDOW = 60 * 60 * 1000 // 1 hour
 const MAX_PER_WINDOW = 10
 const store = new Map<string, StoreEntry>()
 
-const CONTACT_RECIPIENT = 'aurel140783@gmail.com'
+const CONTACT_RECIPIENT = process.env.CONTACT_RECIPIENT || 'contact@example.com'
 
 function getIp(req: NextRequest) {
   const forwarded = req.headers.get('x-forwarded-for')
@@ -77,7 +77,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Log payload for debugging
-  console.log('Payload received:', payload);
+  console.log('Payload received:', payload)
 
   // Required fields validation
   if (!payload.prenom || !payload.nom || !payload.email || !payload.message) {
@@ -86,16 +86,16 @@ export async function POST(req: NextRequest) {
       nom: payload.nom,
       email: payload.email,
       message: payload.message,
-    });
-    return NextResponse.json({ message: 'Veuillez renseigner prénom, nom, email et message.' }, { status: 400 });
+    })
+    return NextResponse.json({ message: 'Veuillez renseigner prénom, nom, email et message.' }, { status: 400 })
   }
 
   // Minimal timing check (prevent super-fast bots)
   const now = Date.now()
   const startedAt = Number(payload.startedAt || 0)
   if (startedAt && now - startedAt < 3000) {
-    console.error('Validation failed: Form submitted too quickly', { startedAt, now });
-    return NextResponse.json({ message: 'Form submitted too quickly' }, { status: 400 });
+    console.error('Validation failed: Form submitted too quickly', { startedAt, now })
+    return NextResponse.json({ message: 'Form submitted too quickly' }, { status: 400 })
   }
 
   // Rate limit

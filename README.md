@@ -112,11 +112,11 @@ npm install
 Créer `.env.local` à la racine :
 ```env
 # SMTP Configuration (Gmail)
-SMTP_HOST=smtp.gmail.com
+SMTP_HOST=smtp.example.com
 SMTP_PORT=587
-SMTP_USER=votre-email@gmail.com
+SMTP_USER=votre-email@example.com
 SMTP_PASSWORD=votre_mot_de_passe_app
-SMTP_FROM=votre-email@gmail.com
+SMTP_FROM=votre-email@example.com
 
 # Application
 NODE_ENV=development
