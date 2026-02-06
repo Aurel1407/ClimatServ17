@@ -19,17 +19,14 @@ export default function DepannagePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-accent-500 to-accent-700 text-white section overflow-hidden">
-        {/* Image de fond hero - Placeholder */}
+        {/* Image de fond hero */}
         <div className="absolute inset-0 opacity-20">
-          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-accent-600">
-            <div className="absolute inset-0 flex items-center justify-center text-accent-300">
-              <div className="text-center">
-                <div className="text-8xl mb-4">🚨</div>
-                <p className="text-sm">Image dépannage urgence</p>
-                <p className="text-xs">1920x1080px recommandé</p>
-              </div>
-            </div>
-          </div>
+          <img 
+            src="/images/depannage-hero.webp" 
+            alt="Dépannage climatisation" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-accent-600 to-transparent"></div>
         </div>
         
         <div className="container-custom relative z-10">

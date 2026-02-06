@@ -11,18 +11,14 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-500 to-primary-700 text-white overflow-hidden">
-        {/* Image de fond hero - Placeholder */}
+        {/* Image de fond hero */}
         <div className="absolute inset-0 opacity-20">
-          <div className="relative w-full h-full bg-gradient-to-r from-transparent to-primary-600">
-            {/* Placeholder pour image hero (climatisation, pompe à chaleur) */}
-            <div className="absolute inset-0 flex items-center justify-center text-primary-300">
-              <div className="text-center">
-                <div className="text-8xl mb-4">❄️</div>
-                <p className="text-sm">Image hero à remplacer</p>
-                <p className="text-xs">1920x1080px recommandé</p>
-              </div>
-            </div>
-          </div>
+          <img 
+            src="/images/hero-banner.webp" 
+            alt="ClimatServ17 - Climatisation et pompe à chaleur" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-transparent"></div>
         </div>
         
         <div className="container-custom section relative z-10">
