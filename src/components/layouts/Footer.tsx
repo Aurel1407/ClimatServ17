@@ -59,13 +59,29 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h4 className="font-bold text-white mb-4">Nos Services</h4>
-            <ul className="space-y-2 text-primary-100">
-              <li>Installation PAC</li>
-              <li>Entretien Climatisation</li>
-              <li>Dépannage</li>
-              <li>Adoucisseur d'eau</li>
+              <ul className="space-y-2 text-primary-100">
+                <li>
+                  <Link href="/services/pompes-a-chaleur" className="hover:text-white transition-colors">
+                    Installation PAC
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/climatisations" className="hover:text-white transition-colors">
+                    Entretien Climatisation
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/depannage" className="hover:text-white transition-colors">
+                    Dépannage
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/adoucisseurs" className="hover:text-white transition-colors">
+                    Adoucisseur d’eau
+                  </Link>
+                </li>
             </ul>
-          </div>
+        </div>
           
           {/* Contact */}
           <div>
@@ -103,7 +119,7 @@ export default function Footer() {
         
         {/* Bottom Bar */}
         <div className="border-t border-primary-400 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">S
             <p className="text-primary-100 text-sm">
               © {currentYear} ClimatServ17. Tous droits réservés.
             </p>
