@@ -13,7 +13,11 @@ const CONTACT_RECIPIENT = 'aurel140783@gmail.com'
 function getIp(req: NextRequest) {
   const forwarded = req.headers.get('x-forwarded-for')
   if (forwarded) return forwarded.split(',')[0].trim()
-  return req.ip ?? 'unknown'
+
+  const realIp = req.headers.get('x-real-ip')
+  if (realIp) return realIp
+
+  return 'unknown'
 }
 
 // SendGrid removed — SMTP (nodemailer) is used exclusively. Fallback is logging.
