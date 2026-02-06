@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "20"
   NPM_FLAGS = "--legacy-peer-deps"
-  SECRETS_SCAN_OMIT_KEYS = "SMTP_HOST,SMTP_PORT,SMTP_USER"
+  SECRETS_SCAN_OMIT_KEYS = "SMTP_HOST,SMTP_PORT,SMTP_USER,CONTACT_RECIPIENT,SMTP_FROM"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
