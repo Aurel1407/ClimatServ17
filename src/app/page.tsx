@@ -208,14 +208,11 @@ export default function HomePage() {
         <div className="flex gap-3">
           <ProtectedPhone 
             encoded="MDU0NjUyNTMzMA=="
-            className="btn btn-secondary flex-1"
-          >
-            <Phone className="w-5 h-5" />
-            Appeler
-          </ProtectedPhone>
-          <Link href="/maintenance-sav" className="btn btn-primary flex-1">
-            <Calendar className="w-5 h-5" />
-            Prendre RDV
+            className="btn btn-secondary flex-1 flex items-center justify-center gap-2 text-sm"
+          />
+          <Link href="/maintenance-sav" className="btn btn-primary flex-1 flex items-center justify-center gap-2">
+            <Calendar className="w-5 h-5 flex-shrink-0" />
+            <span className="whitespace-nowrap">Prendre RDV</span>
           </Link>
         </div>
       </div>
