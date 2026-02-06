@@ -30,6 +30,8 @@ async function trySendWithSmtp(payload: any) {
   const from = process.env.SMTP_FROM || user
   if (!host || !user || !pass) return { sent: false, reason: 'smtp-not-configured' }
 
+  console.log('SMTP Configuration:', { host, port, user, from })
+
   const transporter = nodemailer.createTransport({
     host,
     port: port || 587,
@@ -74,16 +76,26 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Spam detected' }, { status: 400 })
   }
 
+  // Log payload for debugging
+  console.log('Payload received:', payload);
+
   // Required fields validation
   if (!payload.prenom || !payload.nom || !payload.email || !payload.message) {
-    return NextResponse.json({ message: 'Veuillez renseigner prénom, nom, email et message.' }, { status: 400 })
+    console.error('Validation failed: Missing required fields', {
+      prenom: payload.prenom,
+      nom: payload.nom,
+      email: payload.email,
+      message: payload.message,
+    });
+    return NextResponse.json({ message: 'Veuillez renseigner prénom, nom, email et message.' }, { status: 400 });
   }
 
   // Minimal timing check (prevent super-fast bots)
   const now = Date.now()
   const startedAt = Number(payload.startedAt || 0)
   if (startedAt && now - startedAt < 3000) {
-    return NextResponse.json({ message: 'Form submitted too quickly' }, { status: 400 })
+    console.error('Validation failed: Form submitted too quickly', { startedAt, now });
+    return NextResponse.json({ message: 'Form submitted too quickly' }, { status: 400 });
   }
 
   // Rate limit
@@ -106,8 +118,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'OK' })
   }
 
-  // If not sent, log reason and return accepted so user doesn't see internal errors.
-  // eslint-disable-next-line no-console
-  console.warn('Contact email not sent:', sendResult.reason)
-  return NextResponse.json({ message: 'OK (logged; email not delivered)' }, { status: 202 })
+  // Log the error reason
+  console.error('Email send failed:', sendResult.reason)
+
+  // Return an error response to the user
+  return NextResponse.json({ message: 'Erreur lors de l\'envoi de l\'e-mail.', reason: sendResult.reason }, { status: 500 })
 }
