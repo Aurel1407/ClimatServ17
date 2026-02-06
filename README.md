@@ -1,43 +1,42 @@
-# ClimatServ17 - Plateforme de Gestion Client
+# ClimatServ17 - Site Vitrine
 
 ## Description
 
-Plateforme web moderne pour ClimatServ17, spécialiste en climatisation, pompes à chaleur et adoucisseurs d'eau à La Rochelle.
+Site vitrine moderne pour ClimatServ17, spécialiste en climatisation, pompes à chaleur et adoucisseurs d'eau à La Rochelle.
 
 ### Fonctionnalités principales
 
-- **Système de prise de RDV intelligent** avec validation géographique
-- **Espace client sécurisé** (Magic Link - authentification sans mot de passe)
-- **Gestion documentaire** (factures, devis, attestations)
-- **Back-office artisan** pour gestion des documents
-- **Design Industrial Clean** optimisé mobile-first
-- **SEO optimisé** pour la zone La Rochelle + 60km
+- **Site vitrine complet** avec présentation des services
+- **Formulaire de contact sécurisé** avec protections anti-spam
+- **Envoi d'emails automatique** via SMTP
+- **Intégration carte interactive** pour localisation
+- **Intégration application métier** pour prise de RDV
+- **Design responsive** optimisé mobile-first
+- **SEO optimisé** pour la zone La Rochelle
 
 ## Technologies
 
-- **Frontend:** Next.js 14 (App Router) + TypeScript + Tailwind CSS
-- **Backend:** Next.js API Routes
-- **Base de données:** PostgreSQL + Prisma ORM
-- **Authentification:** Magic Link (email)
-- **Validation:** Zod
+- **Framework:** Next.js 16 (App Router) + TypeScript
+- **Styling:** Tailwind CSS
+- **Backend:** Next.js API Routes (formulaire de contact)
+- **Email:** Nodemailer (SMTP)
+- **Carte:** Leaflet + React-Leaflet
 - **Icônes:** Lucide React
 
 ## Structure du projet
 
 ```
 ClimatServ17/
-├── prisma/
-│   ├── schema.prisma          # Schéma de base de données
-│   ├── seed.ts                # Données de test
-│   └── tsconfig.json          # Config TypeScript pour Prisma
 ├── public/
+│   ├── icons/                 # Icônes et favicons
 │   └── images/                # Images optimisées (logo, hero)
+├── scripts/
+│   └── test-smtp-send.js      # Script de test SMTP
 ├── src/
 │   ├── app/
-│   │   ├── api/               # API Routes
-│   │   │   ├── auth/          # Authentification Magic Link
-│   │   │   ├── appointments/  # Gestion des RDV
-│   │   │   └── documents/     # Upload/téléchargement docs
+│   │   ├── api/
+│   │   │   └── contact/       # API formulaire de contact
+│   │   │       └── route.ts   # Envoi emails + protections anti-spam
 │   │   ├── services/          # Pages de détail des services
 │   │   │   ├── pompes-a-chaleur/
 │   │   │   ├── climatisations/
@@ -45,31 +44,41 @@ ClimatServ17/
 │   │   │   ├── adoucisseurs/
 │   │   │   ├── entretien/
 │   │   │   └── depannage/
-│   │   ├── maintenance-sav/   # Page prise de RDV
-│   │   ├── espace-client/     # Portail client
-│   │   ├── contact/           # Page contact
+│   │   ├── maintenance-sav/   # Intégration iframe application métier
+│   │   ├── contact/           # Page formulaire de contact
 │   │   ├── accessibilite/     # Déclaration d'accessibilité
+│   │   ├── mentions-legales/
+│   │   ├── politique-confidentialite/
+│   │   ├── conditions-generales/
 │   │   ├── layout.tsx         # Layout global
 │   │   ├── page.tsx           # Page d'accueil
+│   │   ├── not-found.tsx      # Page 404
 │   │   └── globals.css        # Styles globaux
 │   ├── components/
 │   │   ├── ui/                # Composants UI réutilisables
 │   │   │   ├── Button.tsx
 │   │   │   ├── Input.tsx
 │   │   │   ├── Card.tsx
-│   │   │   └── ImagePlaceholder.tsx
-│   │   └── layouts/           # Header, Footer, Navigation
+│   │   │   ├── ImagePlaceholder.tsx
+│   │   │   ├── InteractiveMap.tsx
+│   │   │   ├── MapWrapper.tsx
+│   │   │   └── ProtectedContact.tsx
+│   │   ├── layouts/           # Header, Footer
+│   │   │   ├── Header.tsx
+│   │   │   └── Footer.tsx
+│   │   └── forms/             # Composants formulaires
 │   ├── lib/
-│   │   ├── prisma.ts          # Client Prisma
-│   │   ├── utils.ts           # Fonctions utilitaires
-│   │   └── validations.ts     # Schémas Zod
+│   │   ├── encoded-contacts.ts # Protection emails/téléphones (Base64)
+│   │   └── utils.ts           # Fonctions utilitaires
 │   └── types/
 │       └── index.ts           # Types TypeScript
-├── .env.example               # Variables d'environnement
+├── .env.example               # Template variables d'environnement
+├── .env.local                 # Variables locales (non commité)
 ├── .gitignore
 ├── IMAGES.md                  # Guide d'intégration des images
 ├── README.md                  # Documentation du projet
 ├── next.config.js
+├── netlify.toml               # Configuration Netlify
 ├── package.json
 ├── start.bat                  # Script démarrage Windows
 ├── stop.bat                   # Script arrêt Windows
@@ -82,8 +91,8 @@ ClimatServ17/
 ### Prérequis
 
 - Node.js 18+
-- PostgreSQL 14+
 - npm ou yarn
+- Compte Gmail avec mot de passe d'application (pour envoi emails)
 
 ### Étapes
 
@@ -99,26 +108,27 @@ npm install
 ```
 
 3. **Configuration de l'environnement**
-```bash
-cp .env.example .env
-```
 
-Modifier `.env` avec vos valeurs:
+Créer `.env.local` à la racine :
 ```env
-DATABASE_URL="postgresql://user:password@localhost:5432/climatserv17"
-NEXTAUTH_SECRET="votre-secret"
-SMTP_HOST="smtp.gmail.com"
-SMTP_USER="votre-email@gmail.com"
-# ... autres variables
+# SMTP Configuration (Gmail)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=votre-email@gmail.com
+SMTP_PASSWORD=votre_mot_de_passe_app
+SMTP_FROM=votre-email@gmail.com
+
+# Application
+NODE_ENV=development
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Google Maps (optionnel)
+NEXT_PUBLIC_GOOGLE_MAPS_KEY=votre_cle_google
 ```
 
-4. **Initialiser la base de données**
-```bash
-npm run prisma:migrate
-npm run prisma:generate
-```
+**Note :** Pour Gmail, activez la validation en deux étapes puis créez un mot de passe d'application dans les paramètres de sécurité.
 
-5. **Lancer le serveur de développement**
+4. **Lancer le serveur de développement**
 ```bash
 npm run dev
 ```
@@ -132,10 +142,15 @@ npm run dev          # Serveur de développement
 npm run build        # Build de production
 npm run start        # Démarrage production
 npm run lint         # Lint du code
-npm run prisma:generate  # Génération du client Prisma
-npm run prisma:migrate   # Migration de la BDD
-npm run prisma:studio    # Interface admin Prisma
 ```
+
+## Fonctionnalités de sécurité du formulaire de contact
+
+- **Honeypot** : champ caché invisible pour piéger les bots
+- **Timing check** : rejet des soumissions trop rapides (<3s)
+- **Rate limiting** : 10 soumissions max par IP / heure
+- **Validation côté client et serveur** : champs requis (prénom, nom, email, message)
+- **Protection des coordonnées** : emails/téléphones encodés en Base64 sur le site
 
 ## Design System
 
@@ -150,21 +165,12 @@ npm run prisma:studio    # Interface admin Prisma
 - **Titres** : Montserrat (Bold)
 - **Corps** : Inter (Regular)
 
-## Sécurité
-
-- SSL/TLS obligatoire
-- Authentification sans mot de passe (Magic Link)
-- Validation côté serveur (Zod)
-- Protection CSRF
-- Headers de sécurité (CSP, X-Frame-Options, etc.)
-
 ## SEO & Performance
 
-- Score PageSpeed > 90/100
 - Images WebP optimisées
-- Métadonnées structurées (Schema.org)
-- Sitemap.xml automatique
+- Métadonnées structurées pour toutes les pages
 - Mobile-First responsive
+- Hébergement Netlify avec CDN global
 
 ## Workflow Git
 
@@ -173,15 +179,18 @@ npm run prisma:studio    # Interface admin Prisma
 - **feature/*** : Nouvelles fonctionnalités
 - **fix/*** : Corrections de bugs
 
-## TODO
+## Déploiement
 
-- [ ] Implémenter le système de prise de RDV
-- [ ] Intégrer l'API Google Calendar
-- [ ] Développer le back-office artisan
-- [ ] Configurer les notifications SMS (Twilio)
-- [ ] Ajouter les tests unitaires
-- [ ] Optimiser les images et icônes
-- [ ] Configurer le déploiement CI/CD
+Le site est configuré pour Netlify avec `netlify.toml`. Push sur `main` déclenche un déploiement automatique.
+
+Variables d'environnement à configurer sur Netlify :
+- `SMTP_HOST`
+- `SMTP_PORT`
+- `SMTP_USER`
+- `SMTP_PASSWORD`
+- `SMTP_FROM`
+- `NEXT_PUBLIC_APP_URL`
+- `NEXT_PUBLIC_GOOGLE_MAPS_KEY` (optionnel)
 
 ## Auteurs
 
