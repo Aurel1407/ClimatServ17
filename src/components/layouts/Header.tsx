@@ -16,18 +16,17 @@ export default function Header() {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3" aria-label="Retour à l'accueil">
-            <Image 
-              src="/images/logo.webp" 
-              alt="ClimatServ17 - Votre expert Confort & Énergie" 
-              width={180} 
-              height={60}
+            <Image
+              src="/images/new-logo-sans-fond.png"
+              alt="ClimatServ17 - Votre expert Confort & Énergie"
+              width={400}
+              height={120}
               className="h-12 w-auto"
               priority
-              
+
             />
           </Link>
-          <Link href="/" className="text-primary-600 hover:text-accent-500 text-2xl font-semibold flex-auto transition-colors left-0 font-heading">ClimatServ17</Link>
-          
+
           {/* Navigation Desktop */}
           <nav className="hidden md:flex items-center gap-6" role="navigation" aria-label="Navigation principale">
             <Link href="/" className="text-primary-700 hover:text-accent-500 font-medium transition-colors" aria-current="page">

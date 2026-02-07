@@ -13,12 +13,12 @@ export default function Footer() {
           {/* Logo & Description */}
           <div className="md:col-span-1">
             <div className="flex justify-center items-center mb-4">
-              <Image 
-                src="/images/logo.webp" 
-                alt="ClimatServ17" 
-                width={120} 
+              <Image
+                src="/images/new-logo-sans-fond.png"
+                alt="ClimatServ17"
+                width={240}
                 height={120}
-                className="h-auto w-32 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.4)]"
+                className="h-auto w-48 filter drop-shadow-[0_4px_8px_rgba(255,255,255,0.4)]"
               />
             </div>
             <p className="text-primary-100 text-medium">
